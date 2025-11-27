@@ -1,13 +1,17 @@
-// Mapping from logical chapters to markdown files in ../llm
+// Resolve base prefix for local vs GitHub Pages project site (support IPv4/IPv6 loopback)
+const isLocal = ['localhost', '127.0.0.1', '::1', '0.0.0.0'].includes(location.hostname);
+const basePrefix = isLocal ? '' : '/ai-engineer-cookbook';
+
+// Mapping from logical chapters to markdown files under /llm (absolute to site base)
 const chapters = [
-  { id: 'foundation',        title: '1. Foundation',        file: '../llm/1.foundation.md' },
-  { id: 'pretraining',         title: '2. Pretraining',         file: '../llm/2.pretraining.md' },
-  { id: 'post_training',       title: '3. Post-training',       file: '../llm/3.post_training.md' },
-  { id: 'common_models',       title: '4. Common Models',       file: '../llm/4.common_models.md' },
-  { id: 'applications',        title: '5. Applications',        file: '../llm/5.applications.md' },
-  { id: 'training_inference',  title: '6. Training & Inference',file: '../llm/6.training_inference.md' },
-  { id: 'compression',         title: '7. Compression',         file: '../llm/7.compression.md' },
-  { id: 'multimodal',          title: '8. Multimodal',          file: '../llm/8.multimodal.md' },
+  { id: 'foundation',        title: '1. Foundation',         file: `${basePrefix}/llm/1.foundation.md` },
+  { id: 'pretraining',         title: '2. Pretraining',          file: `${basePrefix}/llm/2.pretraining.md` },
+  { id: 'post_training',       title: '3. Post-training',        file: `${basePrefix}/llm/3.post_training.md` },
+  { id: 'common_models',       title: '4. Common Models',        file: `${basePrefix}/llm/4.common_models.md` },
+  { id: 'applications',        title: '5. Applications',         file: `${basePrefix}/llm/5.applications.md` },
+  { id: 'training_inference',  title: '6. Training & Inference', file: `${basePrefix}/llm/6.training_inference.md` },
+  { id: 'compression',         title: '7. Compression',          file: `${basePrefix}/llm/7.compression.md` },
+  { id: 'multimodal',          title: '8. Multimodal',           file: `${basePrefix}/llm/8.multimodal.md` },
 ];
 
 
@@ -169,6 +173,6 @@ window.addEventListener('DOMContentLoaded', () => {
   if (hash && chapters.some((c) => c.id === hash)) {
     loadChapter(hash);
   } else {
-    loadChapter('foundation');
+    loadChapter('architecture');
   }
 });
