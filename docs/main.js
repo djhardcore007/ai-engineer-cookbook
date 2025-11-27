@@ -1,6 +1,6 @@
 // Mapping from logical chapters to markdown files in ../llm
 const chapters = [
-  { id: 'architecture',        title: '1. Architecture',        file: '../llm/1.architecture.md' },
+  { id: 'foundation',        title: '1. Foundation',        file: '../llm/1.foundation.md' },
   { id: 'pretraining',         title: '2. Pretraining',         file: '../llm/2.pretraining.md' },
   { id: 'post_training',       title: '3. Post-training',       file: '../llm/3.post_training.md' },
   { id: 'common_models',       title: '4. Common Models',       file: '../llm/4.common_models.md' },
@@ -9,6 +9,7 @@ const chapters = [
   { id: 'compression',         title: '7. Compression',         file: '../llm/7.compression.md' },
   { id: 'multimodal',          title: '8. Multimodal',          file: '../llm/8.multimodal.md' },
 ];
+
 
 function buildToc() {
   const toc = document.getElementById('toc');
@@ -56,10 +57,21 @@ async function loadChapter(id) {
     const contentContainer = document.createElement('div');
     contentContainer.innerHTML = html;
 
+    // Meta header with chapter title only (intent removed)
+    const metaHeader = document.createElement('div');
+    metaHeader.className = 'doc-meta-header';
+    const chapterTitleEl = document.createElement('h1');
+    chapterTitleEl.className = 'doc-chapter-title';
+    chapterTitleEl.textContent = chapter.title.replace(/^\d+\.\s*/, ''); // strip leading number for cleaner heading
+    metaHeader.appendChild(chapterTitleEl);
+
     // Build a simple in-page TOC from headings
     const toc = buildDocToc(contentContainer);
     if (toc) {
+      inner.appendChild(metaHeader);
       inner.appendChild(toc);
+    } else {
+      inner.appendChild(metaHeader);
     }
     inner.appendChild(contentContainer);
     doc.appendChild(inner);
@@ -110,7 +122,8 @@ function renderMathInElement(root) {
 
 // Build a small in-page TOC from h1–h3 headings
 function buildDocToc(root) {
-  const headings = root.querySelectorAll('h1, h2, h3');
+  // h1 + h2 only for cleaner outline
+  const headings = root.querySelectorAll('h1, h2');
   if (!headings.length) return null;
 
   const toc = document.createElement('nav');
@@ -129,6 +142,9 @@ function buildDocToc(root) {
     const a = document.createElement('a');
     a.href = `#${id}`;
     a.textContent = h.textContent.trim();
+    if (h.tagName.toLowerCase() === 'h2') {
+      li.classList.add('doc-toc-level-2');
+    }
     li.appendChild(a);
     list.appendChild(li);
   });
@@ -153,6 +169,6 @@ window.addEventListener('DOMContentLoaded', () => {
   if (hash && chapters.some((c) => c.id === hash)) {
     loadChapter(hash);
   } else {
-    loadChapter('architecture');
+    loadChapter('foundation');
   }
 });
