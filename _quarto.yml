@@ -1,0 +1,55 @@
+project:
+  type: website
+  output-dir: docs
+  resources:
+    - llm/**
+
+website:
+  title: "AI Engineer Cookbook"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - text: "Chapters"
+        menu:
+          - href: llm/1.foundation.qmd
+            text: "1. Foundation"
+          - href: llm/2.pretraining.qmd
+            text: "2. Pretraining"
+          - href: llm/3.post_training.qmd
+            text: "3. Post-training"
+          - href: llm/4.common_models.qmd
+            text: "4. Common Models"
+          - href: llm/5.applications.qmd
+            text: "5. Applications"
+          - href: llm/6.training_inference.qmd
+            text: "6. Training & Inference"
+          - href: llm/7.compression.qmd
+            text: "7. Compression"
+          - href: llm/8.multimodal.qmd
+            text: "8. Multimodal"
+  sidebar:
+    style: floating
+    search: true
+    contents:
+      - index.qmd
+      - section: "LLM"
+        contents:
+          - llm/1.foundation.qmd
+          - llm/2.pretraining.qmd
+          - llm/3.post_training.qmd
+          - llm/4.common_models.qmd
+          - llm/5.applications.qmd
+          - llm/6.training_inference.qmd
+          - llm/7.compression.qmd
+          - llm/8.multimodal.qmd
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 2
+    number-sections: false
+    code-copy: true
+    code-link: true
+    math: katex

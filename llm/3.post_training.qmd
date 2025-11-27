@@ -1,0 +1,9 @@
+---
+title: "3. Post-training"
+format:
+  html:
+    toc: true
+---
+
+# 1. SFT
+# 2. 

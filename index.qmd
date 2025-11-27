@@ -1,0 +1,16 @@
+---
+title: "AI Engineer Cookbook"
+---
+
+Contact Author: florence.jiang@nyu.edu
+
+## Chapters
+
+- [1. Foundation](llm/1.foundation.qmd)
+- [2. Pretraining](llm/2.pretraining.qmd)
+- [3. Post-training](llm/3.post_training.qmd)
+- [4. Common Models](llm/4.common_models.qmd)
+- [5. Applications](llm/5.applications.qmd)
+- [6. Training & Inference](llm/6.training_inference.qmd)
+- [7. Compression](llm/7.compression.qmd)
+- [8. Multimodal](llm/8.multimodal.qmd)

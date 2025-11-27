@@ -1,0 +1,1771 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>1. Foundation – AI Engineer Cookbook</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-a8976c3e89df70b272bdfba3d2fda974.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">AI Engineer Cookbook</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-chapters" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Chapters</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-chapters">    
+        <li>
+    <a class="dropdown-item" href="../llm/1.foundation.html">
+ <span class="dropdown-text">1. Foundation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../llm/2.pretraining.html">
+ <span class="dropdown-text">2. Pretraining</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../llm/3.post_training.html">
+ <span class="dropdown-text">3. Post-training</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../llm/4.common_models.html">
+ <span class="dropdown-text">4. Common Models</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../llm/5.applications.html">
+ <span class="dropdown-text">5. Applications</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../llm/6.training_inference.html">
+ <span class="dropdown-text">6. Training &amp; Inference</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../llm/7.compression.html">
+ <span class="dropdown-text">7. Compression</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../llm/8.multimodal.html">
+ <span class="dropdown-text">8. Multimodal</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../llm/1.foundation.html">LLM</a></li><li class="breadcrumb-item"><a href="../llm/1.foundation.html">1. Foundation</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">AI Engineer Cookbook</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">LLM</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../llm/1.foundation.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">1. Foundation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../llm/2.pretraining.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Pretraining</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../llm/3.post_training.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Post-training</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../llm/4.common_models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Common Models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../llm/5.applications.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Applications</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../llm/6.training_inference.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6. Training &amp; Inference</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../llm/7.compression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7. Compression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../llm/8.multimodal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8. Multimodal</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#tokenization" id="toc-tokenization" class="nav-link active" data-scroll-target="#tokenization">Tokenization</a></li>
+  <li><a href="#embedding" id="toc-embedding" class="nav-link" data-scroll-target="#embedding">Embedding</a></li>
+  <li><a href="#attention" id="toc-attention" class="nav-link" data-scroll-target="#attention">Attention</a></li>
+  <li><a href="#ffn-ln" id="toc-ffn-ln" class="nav-link" data-scroll-target="#ffn-ln">FFN + LN</a>
+  <ul class="collapse">
+  <li><a href="#why-ffn" id="toc-why-ffn" class="nav-link" data-scroll-target="#why-ffn">Why FFN?</a></li>
+  <li><a href="#normalizations" id="toc-normalizations" class="nav-link" data-scroll-target="#normalizations">Normalizations</a></li>
+  </ul></li>
+  <li><a href="#ffn-activations" id="toc-ffn-activations" class="nav-link" data-scroll-target="#ffn-activations">FFN + Activations</a>
+  <ul class="collapse">
+  <li><a href="#types-of-activation" id="toc-types-of-activation" class="nav-link" data-scroll-target="#types-of-activation">Types of Activation</a></li>
+  <li><a href="#activation-functions" id="toc-activation-functions" class="nav-link" data-scroll-target="#activation-functions">Activation functions</a></li>
+  </ul></li>
+  <li><a href="#positional-encoding" id="toc-positional-encoding" class="nav-link" data-scroll-target="#positional-encoding">Positional Encoding</a>
+  <ul class="collapse">
+  <li><a href="#types" id="toc-types" class="nav-link" data-scroll-target="#types">Types</a></li>
+  <li><a href="#fancy-positional-encoding-methods" id="toc-fancy-positional-encoding-methods" class="nav-link" data-scroll-target="#fancy-positional-encoding-methods">Fancy Positional Encoding Methods</a></li>
+  <li><a href="#length-extrapolation" id="toc-length-extrapolation" class="nav-link" data-scroll-target="#length-extrapolation">Length Extrapolation</a></li>
+  </ul></li>
+  <li><a href="#architecture" id="toc-architecture" class="nav-link" data-scroll-target="#architecture">Architecture</a></li>
+  <li><a href="#decoding" id="toc-decoding" class="nav-link" data-scroll-target="#decoding">Decoding</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../llm/1.foundation.html">LLM</a></li><li class="breadcrumb-item"><a href="../llm/1.foundation.html">1. Foundation</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">1. Foundation</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="tokenization" class="level1">
+<h1>Tokenization</h1>
+<ul>
+<li>Why?</li>
+<li>3 types of tokens: char, word, subwords
+<ul>
+<li>word: 1) OOV 2) long-tail effect 3) won’t learn the shared meaning between <em>swim</em> and <em>swimming</em>.</li>
+<li>char: sequence length too long → expensive compute.</li>
+<li>subword units.</li>
+</ul></li>
+<li>Subwords Methodologies
+<ul>
+<li><ol type="1">
+<li>Start with 26 chars + punctuation, a training corpus, and a required vocab size <span class="math inline">\(V\)</span>.<br>
+</li>
+<li>Split all tokens into sub-pieces, e.g.&nbsp;<code>cat</code> → <code>[c, a, t, ca, at, cat]</code>.<br>
+</li>
+<li>Question: how to merge units into <span class="math inline">\(|V|\)</span> important subwords so that you best represent the corpus? You need an importance score over candidate subwords.</li>
+</ol></li>
+<li>3 methods
+<ul>
+<li><a href="https://arxiv.org/pdf/1508.07909">BPE</a> / Byte-level BPE.<br>
+Merge on frequency. Count frequencies of all units, merge subwords that reduce the description length / token count, and update the vocab. Start from the most frequent units (usually chars).<br>
+<a href="1.1.bpe.py">[code]</a></li>
+<li>BBPE: Byte-level BPE.
+<ul>
+<li>Instead of using strings, use bytes.</li>
+<li>Pros:
+<ul>
+<li>BPE enables multilingual learning.</li>
+<li>Compression.</li>
+<li>Not just for text; can also work on images etc.</li>
+</ul></li>
+</ul></li>
+<li>WordPiece: find <span class="math inline">\(|V|\)</span> subwords that give the best log-likelihood of the training corpus <span class="math inline">\(S\)</span>. <code>text       token x, y --&gt; token z</code> <span class="math display">\[
+  \log P(z) - (\log P(x) + \log P(y))
+  = \log \frac{P(z)}{P(x)P(y)}
+  \]</span></li>
+<li>Unigram Language Model
+<ul>
+<li>How to score if a token is important? A token is important if deleting it (and only using its sub-units) causes larger loss for the unigram model.</li>
+<li>Keep single-char tokens to avoid OOV. <span class="math display">\[
+  p(x) = \prod_i p(x_i), \qquad
+  \hat{x} = \arg\max_x p(x)
+  \]</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>Comparisons
+<ul>
+<li>BPE and WordPiece: how to merge? From small vocab to big.</li>
+<li>Unigram LM: how to use the LM to shrink vocab from big to small?</li>
+</ul></li>
+<li>Tokenization is the root of a lot of issues: because LLMs are next-token predictors, they struggle with exact arithmetic.</li>
+</ul>
+</section>
+<section id="embedding" class="level1">
+<h1>Embedding</h1>
+<ul>
+<li><p>Why? Word embeddings are dense representations that capture semantic meanings. It’s basically training an MLP to map one-hot vectors into dense vectors that represent word meaning.</p></li>
+<li><p>Lookup table <code>nn.Embedding(vocab_size, embedding_dim)</code> turns a <span class="math inline">\(|V|\)</span>-dim one-hot vector into a 512/768‑dim dense vector.</p></li>
+<li><p>Everything is a mapping: map a word into a vector, a sentence into a vector, or tokens into a high‑dimensional embedding space. The question is: how do you train that mapping?</p></li>
+<li><p>Embedding is injective and (approximately) structure‑preserving.</p></li>
+<li><p>Methods</p>
+<ul>
+<li><p>one‑hot</p>
+<ul>
+<li>Problems: dimensionality explosion; every token is orthogonal, so you can’t directly learn semantic similarity.</li>
+<li>In some cases, you can do one‑hot encoding + PCA.</li>
+<li>Why use one‑hot? It turns discrete IDs into a structured continuous space where each feature is orthogonal.</li>
+</ul></li>
+<li><p>distributed representation: you need to turn one‑hot features into Euclidean space so you can measure <span class="math inline">\(L_p\)</span> distances. Dense representation is (1) easy to measure similarity and (2) more compact.</p></li>
+<li><p>word2vec: predict target word given context words.</p>
+<ul>
+<li>CBOW (Continuous Bag of Words)
+<ul>
+<li>Given the words around the blank, what word should be in the blank?</li>
+<li>Average over context words’ embeddings.</li>
+<li>Ignores order.</li>
+</ul>
+<ol type="1">
+<li><p>Context Words</p>
+<p>Context words: <span class="math inline">\(w_1, w_2, \dots, w_C\)</span></p>
+<p>Target word: <span class="math inline">\(w_t\)</span></p></li>
+<li><p>One‑Hot Encoding</p>
+<p>Each word is a one‑hot vector of size <span class="math inline">\(V\)</span> (vocabulary size): <span class="math display">\[
+x_i \in \mathbb{R}^V
+\]</span></p></li>
+<li><p>Embedding Lookup</p>
+<p>Embedding matrix: <span class="math display">\[
+W \in \mathbb{R}^{V \times D}
+\]</span> Word embedding for context word <span class="math inline">\(w_i\)</span>: <span class="math display">\[
+v_i = W^T x_i
+\]</span> (Just selects the word’s embedding row.)</p></li>
+<li><p>Hidden layer: average the context vectors <span class="math display">\[
+  h = \frac{1}{C} \sum_{i=1}^{C} v_i
+  \]</span></p></li>
+<li><p>Output Layer</p>
+<p>Second matrix: <span class="math display">\[
+W' \in \mathbb{R}^{D \times V}
+\]</span> Scores for all words: <span class="math display">\[
+u = {W'}^T h
+\]</span></p></li>
+<li><p>Softmax Prediction <span class="math display">\[
+  p(w_t \mid \text{context}) =
+  \frac{\exp(u_t)}{\sum_{j=1}^{V} \exp(u_j)}
+  \]</span> Maximize the probability of the target word: <span class="math display">\[
+  \max \log p(w_t \mid \text{context})
+  \]</span> (Usually approximated with <a href="https://en.wikipedia.org/wiki/Word2vec">negative sampling</a>)</p></li>
+</ol></li>
+</ul></li>
+<li><p>skip‑gram: predict context words FROM the target word.</p></li>
+<li><p>FastText: still uses CBOW or Skip‑Gram, but replaces the word embedding with the sum of its character n‑gram vectors.</p>
+<p>Given word <code>playing</code>, n‑grams with <span class="math inline">\(n = 3\)</span>: <code>&lt;pl, pla, lay, ayi, yin, ing, ng&gt;</code> + <code>&lt;playing&gt;</code> (sliding window size = 3)</p>
+<p>Embedding of the word <em>playing</em> is now <span class="math display">\[
+  v_{\text{playing}} = \sum_{g \in G} z_g
+  \]</span> Where:</p>
+<ul>
+<li><span class="math inline">\(G\)</span> = set of character n‑grams of the word</li>
+<li><span class="math inline">\(z_g\)</span> = embedding vector of each n‑gram</li>
+</ul>
+<p>Then apply CBOW or skip‑gram on top: <span class="math display">\[
+  \max \sum_{c \in \text{context}} \log p\bigl(c \mid \text{ngrams}(w_t)\bigr)
+  \]</span> This works because granularity is better: (1) fewer OOVs, (2) more efficient since vocab size drops.</p></li>
+</ul></li>
+<li><p>word2vec: how to accelerate?</p>
+<ul>
+<li>hierarchical softmax
+<ul>
+<li>Binary tree. Complexity: <span class="math inline">\(|V| \to \log V\)</span>.</li>
+<li>Higher‑freq words are located closer to the root.</li>
+<li>“Greedy optimization”.</li>
+<li>Cons: if the word is rare, you have to go deep into the tree.</li>
+</ul></li>
+<li>Negative sampling
+<ul>
+<li>Definition: a training trick used in word2vec (CBOW &amp; Skip‑Gram) to avoid computing a slow full softmax over the entire vocabulary.</li>
+<li>Why? Faster and more efficient.</li>
+<li>How?
+<ul>
+<li><p>Full softmax requires a sum over all <span class="math inline">\(V\)</span> words, which is extremely slow when <span class="math inline">\(V\)</span> is large.</p></li>
+<li><p>Negative sampling replaces this expensive softmax with a binary classification task.</p>
+<p>1 positive example (the true target/context word): <code>text   (target = "cat", context = "cute")</code> <span class="math inline">\(K\)</span> negative examples (random wrong words): <code>text   ("cat", "banana")   ("cat", "engine")   ("cat", "chair")</code></p></li>
+<li><p>Math</p>
+<p>Positive example: <span class="math display">\[
+  \log \sigma \bigl(v_{\text{context}}^\top v_{\text{target}}\bigr)
+  \]</span> Negative examples: <span class="math display">\[
+  \sum_{i=1}^{K} \log \sigma \bigl(-v_{\text{neg}_i}^\top v_{\text{target}}\bigr)
+  \]</span> Total loss: <span class="math display">\[
+  L = \log \sigma(v_{+}^\top v_t)
+  + \sum_{i=1}^{K} \log \sigma(-v_{\text{neg}_i}^\top v_t)
+  \]</span> where <span class="math inline">\(\sigma\)</span> is sigmoid, <span class="math inline">\(v_+\)</span> is the real context embedding, and <span class="math inline">\(v_{\text{neg}_i}\)</span> are negative embeddings.</p></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="attention" class="level1">
+<h1>Attention</h1>
+<ul>
+<li><p>Why?</p>
+<ul>
+<li>Core idea: assign importance scores to different tokens and focus on the important ones.</li>
+<li>Handles long sequences by keeping order information.</li>
+<li>Parallelizable and efficient to compute.</li>
+</ul></li>
+<li><p>self‑attention</p>
+<ul>
+<li>modules
+<ul>
+<li>vocab embedding: what am I? what word meaning do I have?</li>
+<li>positional embedding: where am I?</li>
+<li>query: what information are you looking for? captured by the query matrix.</li>
+<li>key</li>
+<li>value: combined with key to construct importance scores. The better the match, the larger the score.</li>
+<li>importance score becomes <span class="math display">\[
+  \mathrm{Attention}(Q, K, V) =
+  \operatorname{softmax}\left(\frac{QK^\top}{\sqrt{d_k}}\right) V
+  \]</span></li>
+<li>why softmax? make sure the scores are normalized to <span class="math inline">\([0,1]\)</span> and sum to 1 (a probability distribution).</li>
+<li>why scale? control variance. If <span class="math inline">\(d_k\)</span> is large, the unscaled dot products blow up, softmax saturates, and gradients vanish.</li>
+</ul></li>
+</ul></li>
+<li><p>self‑attention / encoder attention: full attention; a token can see all other tokens.</p></li>
+<li><p>decoder attention: masked / causal attention; auto‑regressive; prevents data leakage.</p></li>
+<li><p>cross attention: queries come from sequence 1, keys and values from sequence 2 (e.g., English vs.&nbsp;Chinese in translation).</p></li>
+<li><p>multi‑head self‑attention: multiple attention “heads” increase model capacity.</p></li>
+<li><p>Complexity: <span class="math inline">\(O(N^2)\)</span> where <span class="math inline">\(N\)</span> is the number of tokens per sequence.</p></li>
+<li><p>Sparse attention</p>
+<ul>
+<li>How? Only study relationships within the closest <span class="math inline">\(k\)</span> tokens (sliding window). This adds a locality prior.</li>
+<li>By controlling the attention mask, you control locality patterns.</li>
+<li>Hand‑engineered masks can be suboptimal; ideally you would learn the sparsity pattern.</li>
+<li><a href="1.3.sparse_attention.py">[code]</a></li>
+</ul></li>
+<li><p>Linear attention</p>
+<ul>
+<li><p>How? Swap softmax into linear kernels.</p></li>
+<li><p>Why? Drops complexity from <span class="math inline">\(O(N^2)\)</span> to <span class="math inline">\(O(N)\)</span>.</p></li>
+<li><p>Math</p>
+<p>Softmax prevents factorization: <span class="math display">\[
+  \operatorname{softmax}(QK^\top)
+  \]</span> cannot be written as a simple product of smaller matrices.</p>
+<p>If we use a feature map <span class="math inline">\(\phi\)</span> and write <span class="math display">\[
+  \phi(Q)\phi(K)^\top
+  \]</span> we can reorder operations. Instead of: <span class="math display">\[
+  \operatorname{softmax}(QK^\top)V \;\to\; O(N^2)
+  \]</span> we compute: <span class="math display">\[
+  \phi(Q)\bigl(\phi(K)^\top V\bigr) \;\to\; O(N)
+  \]</span></p>
+<p>where <span class="math inline">\(\phi\)</span> is a kernel feature map:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(\phi(x)\)</span></th>
+<th>Range</th>
+<th>Positive?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ReLU(x) + 1</td>
+<td><span class="math inline">\([1, \infty)\)</span></td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td>ReLU(x)<span class="math inline">\(^2\)</span></td>
+<td><span class="math inline">\([0, \infty)\)</span></td>
+<td>Yes</td>
+</tr>
+<tr class="odd">
+<td>ELU(x) + 1</td>
+<td><span class="math inline">\((0, \infty)\)</span></td>
+<td>Yes ✓ (best)</td>
+</tr>
+<tr class="even">
+<td>LeakyReLU(x) + 1</td>
+<td><span class="math inline">\((-\infty, \infty)\)</span></td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\exp(x)\)</span></td>
+<td><span class="math inline">\((0, \infty)\)</span></td>
+<td>Yes ✓</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\cos / \sin\)</span></td>
+<td><span class="math inline">\([-1, 1]\)</span></td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(x\)</span></td>
+<td><span class="math inline">\((-\infty, \infty)\)</span></td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(x^2\)</span></td>
+<td><span class="math inline">\([0, \infty)\)</span></td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p>As long as the kernel feature map is factorized, positive, and smooth, this works and is optimization‑friendly.</p>
+<p>Now there is no explicit <span class="math inline">\(N \times N\)</span> matrix → no quadratic cost → linear time.</p></li>
+<li><p>downside:</p>
+<ul>
+<li>We lose the normalization effect of softmax.</li>
+<li>Attention distribution becomes less sharp.</li>
+<li>Sometimes lower quality on tasks requiring exact token interactions.</li>
+<li>Softmax enforces a probability distribution over attention weights—linear attention does not.</li>
+</ul></li>
+<li><p><a href="https://github.com/lucidrains/linear-attention-transformer">implementation of linear attention in transformers</a></p></li>
+</ul></li>
+<li><p>KV cache</p>
+<ul>
+<li>Mainstream attention in decoders: masked self‑attention, auto‑regressive. It uses all <span class="math inline">\(K, V\)</span> of previous tokens. To avoid recomputing them at each step, we cache previous <span class="math inline">\(K, V\)</span> for efficiency.</li>
+</ul></li>
+<li><p><a href="https://github.com/InternLM/lmdeploy">inference framework lmdeploy</a></p></li>
+<li><p>Flash‑attention</p>
+<ul>
+<li>Why? For long sequences: you split into chunks, compute attention in tiles, then aggregate.</li>
+<li>How? Map‑reduce style:
+<ol type="1">
+<li>Chunk the sequence into blocks (<code>tiles</code>).</li>
+<li>For each block: load <span class="math inline">\(Q, K, V\)</span> tiles into high‑speed SRAM. Compute attention scores and partial outputs.</li>
+<li>Reduce the partial results to final output.</li>
+</ol></li>
+<li>This avoids materializing the full attention matrix.</li>
+<li>Flash‑attention leads to <code>flash-decoding</code>.</li>
+<li>Compute attention incrementally, tile by tile.</li>
+<li>Keep intermediary data on‑chip (GPU shared memory).</li>
+<li>Use numerically stable softmax with running maxima.</li>
+</ul></li>
+<li><p>Streaming LLM</p>
+<ul>
+<li>Masked self‑attention + tiling to enable efficient auto‑regressive generation over streams.</li>
+</ul></li>
+<li><p>MHA (multi‑head attention)</p>
+<ul>
+<li>Why multiple heads? Similar to group convolution. Many parallel channels, each focusing on different details / subspaces of the sequence. Each head can learn different semantics: <code>text       head 1: positional patterns       head 2: syntax       head 3: long-range links       head 4: entities / names</code></li>
+</ul></li>
+<li><p>MQA (multi‑query attention)</p>
+<ul>
+<li>How it works?
+<ul>
+<li>Multiple queries, shared keys, shared values.</li>
+<li><span class="math inline">\(Q\)</span> still has <span class="math inline">\(H\)</span> heads. But <span class="math inline">\(K\)</span> and <span class="math inline">\(V\)</span> are single‑headed (shared).</li>
+</ul></li>
+<li>Why?
+<ul>
+<li>Efficient in large‑scale inference with only a small performance drop.</li>
+</ul></li>
+</ul></li>
+<li><p>Grouped‑query attention</p>
+<ul>
+<li>Why? MQA is too extreme (1 group), MHA is expensive (<span class="math inline">\(H\)</span> groups). In between, you have <span class="math inline">\(G\)</span> groups of queries. Each group has multiple heads, and shares <span class="math inline">\(K, V\)</span>.</li>
+<li>You keep good quality while maintaining speed.</li>
+</ul></li>
+<li><p>Multi‑head latent attention</p>
+<ul>
+<li>Combines multi‑head attention and linear attention.</li>
+</ul></li>
+<li><p>DCA (Dual Chunk Attention)</p>
+<ul>
+<li>How?
+<ol type="1">
+<li>Split long‑form sequence into chunks.</li>
+<li>Calculate attention within a chunk.</li>
+<li>Calculate cross‑block attention: attention between chunks.</li>
+<li>Concat results.</li>
+</ol></li>
+<li>Why?
+<ul>
+<li>Efficient compute.</li>
+<li>Less RAM cost.</li>
+</ul></li>
+</ul></li>
+<li><p>S2 attention:</p>
+<ul>
+<li>How? (various sparse + sliding schemes for long sequences).</li>
+</ul></li>
+</ul>
+</section>
+<section id="ffn-ln" class="level1">
+<h1>FFN + LN</h1>
+<section id="why-ffn" class="level2">
+<h2 class="anchored" data-anchor-id="why-ffn">Why FFN?</h2>
+<p>After MHA, tokens exchange information. The FFN is for local computation. ## Why add residuals? 1. Avoid gradient explosion / vanishing in deep networks. Residuals add shortcut connections. 2. Standard residual: an express lane for information.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 63%">
+<col style="width: 26%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Formula</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Standard Residual</strong></td>
+<td><span class="math display">\[x_{l+1} = x_l + f(x_l)\]</span></td>
+<td>Original ResNet‑style skip connection</td>
+</tr>
+<tr class="even">
+<td><strong>Post‑LN Transformer</strong></td>
+<td><span class="math display">\[x_{l+1} = \text{LN}(x_l + f(x_l))\]</span></td>
+<td>Used in early Transformers (BERT), less stable for deep models</td>
+</tr>
+<tr class="odd">
+<td><strong>Pre‑LN Transformer</strong></td>
+<td><span class="math display">\[x_{l+1} = x_l + f(\text{LN}(x_l))\]</span></td>
+<td>Used in modern LLMs (GPT, LLaMA), very stable</td>
+</tr>
+<tr class="even">
+<td><strong>DeepNorm</strong></td>
+<td><span class="math display">\[x_{l+1} = x_l + \alpha \cdot f(\text{LN}(x_l))\]</span> <br> Encoder: <span class="math display">\[\alpha = \frac{1}{\sqrt{2N}}\]</span> <br> Decoder: <span class="math display">\[\alpha = \frac{1}{\sqrt{4N}}\]</span></td>
+<td>Adds residual scaling so <strong>very deep</strong> models stay stable; <span class="math inline">\(N\)</span> is # of layers.</td>
+</tr>
+<tr class="odd">
+<td><strong>ReZero</strong></td>
+<td><span class="math display">\[x_{l+1} = x_l + \alpha \cdot f(x_l)\]</span> (α learnable, init = 0)</td>
+<td>Starts with zero residual; stabilizes early training</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="normalizations" class="level2">
+<h2 class="anchored" data-anchor-id="normalizations">Normalizations</h2>
+<ul>
+<li>Why? Stable convergence; avoid gradients exploding or vanishing.</li>
+<li>Types
+<ul>
+<li>LayerNorm
+<ul>
+<li>Normalize over <code>feature dimension = hidden size = embedding size = token vector size</code> (e.g.&nbsp;512/768).</li>
+<li>Mainly for RNNs, Transformers. LayerNorm works per token, across its features.</li>
+<li>LayerNorm does NOT look across tokens. You want each token embedding on a similar scale.</li>
+</ul></li>
+<li>BatchNorm
+<ul>
+<li>Normalize over <code>batch_size</code>.</li>
+<li>Mainly for CNNs, where you want different images (e.g.&nbsp;faces) on the same scale.</li>
+</ul></li>
+<li>How to do norm correctly?</li>
+</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 53%">
+<col style="width: 20%">
+<col style="width: 19%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Formula</th>
+<th>What It Normalizes / Changes</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Vanilla LayerNorm</strong></td>
+<td><span class="math display">\[x_{\text{norm}} = \frac{x - \mathbb{E}[x]}{\sqrt{\operatorname{Var}(x)+\epsilon}} \cdot \gamma + \beta\]</span></td>
+<td>Normalizes <strong>per token across features</strong> (mean + variance)</td>
+<td>Standard LN used in early Transformers</td>
+</tr>
+<tr class="even">
+<td><strong>RMSNorm</strong></td>
+<td><span class="math display">\[\text{RMS}(x)=\sqrt{\frac{1}{H}\sum_{i=1}^{H} x_i^2 + \epsilon}\]</span> <span class="math display">\[x_{\text{norm}} = \frac{x}{\text{RMS}(x)} \cdot \gamma\]</span></td>
+<td>Normalizes only by <strong>root mean square</strong> (no mean subtraction, no β)</td>
+<td>Faster, more stable; used by LLaMA, T5 (<strong>no need to shift, only scale</strong>).</td>
+</tr>
+<tr class="odd">
+<td><strong>DeepNorm</strong></td>
+<td><span class="math display">\[x_{l+1} = x_l + \alpha \cdot f(\text{LN}(x_l))\]</span> <span class="math display">\[\text{Encoder: } \alpha=\frac{1}{\sqrt{2N}}, \quad \text{Decoder: } \alpha=\frac{1}{\sqrt{4N}}\]</span></td>
+<td><strong>Scales residual branches</strong>, not normalization itself</td>
+<td>Enables very <strong>deep</strong> transformers (hundreds–thousands of layers)</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
+</section>
+</section>
+<section id="ffn-activations" class="level1">
+<h1>FFN + Activations</h1>
+<section id="types-of-activation" class="level2">
+<h2 class="anchored" data-anchor-id="types-of-activation">Types of Activation</h2>
+<ul>
+<li><p>Vanilla FFN activation <span class="math display">\[
+  \mathrm{FFN}(x) = \operatorname{ReLU}(xW_1 + b_1)W_2 + b_2
+  \]</span></p></li>
+<li><p>GLU‑style FFN activation <span class="math display">\[
+  \mathrm{GLU}(x) = (xV) \odot (xW + b)
+  \]</span></p>
+<p><span class="math display">\[
+  \mathrm{FFN}_{\mathrm{GLU}}(x) = (xV) \odot \sigma(x W_1 + b) W_2
+  \]</span></p>
+<p>Why this works: the activation is like a gate. <span class="math inline">\(\sigma\)</span> is the gate that controls which affine transformation passes through.</p>
+<p>If you swap <span class="math inline">\(\sigma\)</span> with Swish or GELU, you get the newer FFN designs used in current LLMs.</p></li>
+</ul>
+</section>
+<section id="activation-functions" class="level2">
+<h2 class="anchored" data-anchor-id="activation-functions">Activation functions</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 35%">
+<col style="width: 43%">
+<col style="width: 0%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Activation</th>
+<th>Formula</th>
+<th>Notes</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Sigmoid</strong></td>
+<td><span class="math display">\[\sigma(x) = \frac{1}{1 + e^{-x}}\]</span></td>
+<td>Causes <strong>vanishing/exploding gradients</strong>; saturates for large <span class="math inline">\(|x|\)</span>; expensive due to exponential</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Tanh</strong></td>
+<td><span class="math display">\[\tanh(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}}\]</span></td>
+<td>Still suffers gradient vanishing; exponential compute; zero‑centered</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>ReLU</strong></td>
+<td><span class="math display">\[\text{ReLU}(x) = \max(0, x)\]</span></td>
+<td>No gradient vanishing for <span class="math inline">\(x&gt;0\)</span>; not smooth; gradients = 0 for negative values; not zero‑centered</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Leaky ReLU</strong></td>
+<td><span class="math display">\[\text{LeakyReLU}(x) = \begin{cases}x, &amp; x&gt;0 \\ \alpha x, &amp; x&lt;0 \end{cases}\]</span></td>
+<td>Prevents dying ReLU; still quite linear; simple compute</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>ELU</strong></td>
+<td><span class="math display">\[\text{ELU}(x) = \begin{cases}x, &amp; x&gt;0 \\ \alpha(e^x - 1), &amp; x&lt;0 \end{cases}\]</span></td>
+<td>Smooth; negative values help shift mean; exponential = costly</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Swish</strong></td>
+<td><span class="math display">\[\text{Swish}(x) = x \cdot \sigma(x)\]</span></td>
+<td>Smooth, non‑monotonic; excellent performance in deep nets</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>GELU</strong></td>
+<td><span class="math display">\[\text{GELU}(x) = x \cdot \Phi(x)\]</span> <br><span class="math inline">\(\Phi\)</span> = Gaussian CDF</td>
+<td>Used in Transformers; smooth, probabilistic gating behavior</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>SwiGLU</strong></td>
+<td><span class="math display">\[\text{SwiGLU}(x) = \text{Swish}(x_1) \odot x_2\]</span></td>
+<td>Most effective MLP activation in modern LLMs</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Softmax</strong></td>
+<td><span class="math display">\[\text{softmax}(x_i) = \frac{e^{x_i}}{\sum_j e^{x_j}}\]</span></td>
+<td>Converts logits to a <strong>probability distribution</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="positional-encoding" class="level1">
+<h1>Positional Encoding</h1>
+<p>Why? Transformers don’t learn order by default.</p>
+<section id="types" class="level2">
+<h2 class="anchored" data-anchor-id="types">Types</h2>
+<ul>
+<li>Absolute positional encoding <span class="math display">\[
+  PE(t) = [\sin(\omega_0 t), \sin(\omega_1 t), \dots, \sin(\omega_n t)]
+  \]</span> <span class="math display">\[
+  \omega_i = 10000^{-i/d_{\text{model}}}
+  \]</span>
+<ul>
+<li><p>WordEmbedding + PositionalEmbedding: use ADD, not CONCAT.</p></li>
+<li><p>When you visualize it: <a href="1.5.abs_positional_embedding.png">visual</a></p></li>
+<li><p>For very long sequences, fixed sin/cos frequencies can become problematic.</p></li>
+<li><p>Attention requires pairwise dot‑products; positional encodings can be baked into those dot‑products.</p></li>
+<li><p>How to solve long‑context issues?</p></li>
+<li><p>BERT: learn an MLP / embedding table for positions. Initialize a <span class="math inline">\([512, 768]\)</span> matrix, concat with word embeddings, then learn the positional matrix. Downside: cannot process longer than the max length (e.g., 512 tokens).</p></li>
+<li><p>RNN positional encoding: add an RNN on top of word embeddings so RNN learns positions. Downside: cannot fully parallelize.</p></li>
+</ul></li>
+<li>Relative positional encoding
+<ul>
+<li>Intra‑token distances: Construct a relative distance measure between token <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span>: <span class="math inline">\(f(|i-j|)\)</span>.</li>
+<li>2 Major variants:
+<ul>
+<li>RoPE: if the encoding is embedded into attention.</li>
+<li>ALiBi: if the encoding is added as a soft bias in attention; you penalize weights of tokens <span class="math inline">\(j\)</span> farther from token <span class="math inline">\(i\)</span>.</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="fancy-positional-encoding-methods" class="level2">
+<h2 class="anchored" data-anchor-id="fancy-positional-encoding-methods">Fancy Positional Encoding Methods</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 37%">
+<col style="width: 12%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Formula</th>
+<th>What It Encodes</th>
+<th>Intuition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Sinusoidal (Absolute)</strong></td>
+<td><span class="math display">\[PE(t)_i = \sin(t \cdot \omega_i),\quad \omega_i = 10000^{-i/d}\]</span></td>
+<td>Absolute position index</td>
+<td>Each position gets a unique “wave signature.” Different frequencies let the model infer order (like reading a timestamp).</td>
+</tr>
+<tr class="even">
+<td><strong>Learned Absolute</strong></td>
+<td><span class="math display">\[PE(t) = E_t\]</span></td>
+<td>Absolute position index</td>
+<td>The model learns a table of positional vectors, like a “positional vocabulary.”</td>
+</tr>
+<tr class="odd">
+<td><strong>Relative (Shaw et al.)</strong></td>
+<td><span class="math display">\[\text{score}_{ij} = Q_i K_j^\top + a_{i-j}\]</span></td>
+<td>Relative distance <span class="math inline">\((i-j)\)</span></td>
+<td>Instead of “where are they,” it learns “how far apart are they.” This matches how language works (“this word modifies the next one”).</td>
+</tr>
+<tr class="even">
+<td><strong>Intra-token Distance (General)</strong></td>
+<td><span class="math display">\[PE(i,j) = f(\lvert i-j \rvert)\]</span></td>
+<td>Arbitrary distance functions</td>
+<td>Can define <em>any</em> mapping from distance → bias. ALiBi and T5 are specific cases of this general framework.</td>
+</tr>
+<tr class="odd">
+<td><strong>ALiBi (Attention Linear Bias)</strong></td>
+<td><span class="math display">\[\text{score}_{ij} += w_h \cdot (i - j)\]</span></td>
+<td>Linear distance penalty</td>
+<td>Far‑away tokens get a <em>soft negative penalty</em> → similar to a <strong>soft mask</strong> that encourages attending to recent tokens. Generalizes to very long sequences.</td>
+</tr>
+<tr class="even">
+<td><strong>RoPE (Rotary Position Embedding)</strong></td>
+<td><span class="math display">\[Q_t^{\text{rot}}=R_tQ_t,\quad K_t^{\text{rot}}=R_tK_t\]</span> <br> <span class="math display">\[R_t=\begin{bmatrix}\cos(\theta t)&amp;-\sin(\theta t)\\\sin(\theta t)&amp;\cos(\theta t)\end{bmatrix}\]</span></td>
+<td>Encodes relative shift through geometric rotation</td>
+<td>Positions rotate Q/K vectors in a circular space. Relative distances become differences in rotation. Elegant, smooth, natural for attention.</td>
+</tr>
+<tr class="odd">
+<td><strong>T5 / DeBERTa (Relative Bias)</strong></td>
+<td><span class="math display">\[\text{score}_{ij} = Q_i K_j^\top + b_{\lvert i-j \rvert}\]</span></td>
+<td>Bucketed distances</td>
+<td>Distances are grouped into buckets. “Far but not too far” gets the same bucket. Stable and easy for NLP tasks.</td>
+</tr>
+</tbody>
+</table>
+<p>My intuition is that</p>
+<ul>
+<li>Sinusoidal / sin wave → every position = unique wave pattern</li>
+<li>Learned → positions learned like embeddings</li>
+<li>Shaw Relative → model learns “how far apart”</li>
+<li>ALiBi → soft distance mask (recent &gt; far)</li>
+<li>RoPE → rotate queries/keys; relative emerges naturally</li>
+<li>T5/DeBERTa → distance buckets (coarse relative)</li>
+<li>Intra-token → any distance function you want</li>
+</ul>
+</section>
+<section id="length-extrapolation" class="level2">
+<h2 class="anchored" data-anchor-id="length-extrapolation">Length Extrapolation</h2>
+<ul>
+<li>def: when input sequence is too long. Training seq length is, say, 20k; inference seq 128k. Model collapses because it never saw tokens at such large positions.</li>
+<li>Goal: encode positional info so the model can extrapolate to very long lengths.</li>
+</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 28%">
+<col style="width: 18%">
+<col style="width: 13%">
+<col style="width: 16%">
+<col style="width: 6%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Math (Core Formula)</th>
+<th>Intuition (Why it works)</th>
+<th>Pros</th>
+<th>Cons</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>RPE (Relative Position Embedding)</strong></td>
+<td><span class="math display">\[\text{score}_{ij} = Q_i K_j^\top + a(i-j)\]</span></td>
+<td>Encode <strong>relative distance</strong> rather than absolute position → natural for long sequences</td>
+<td>Good extrapolation; matches linguistic structure; stable</td>
+<td>Needs learned embeddings; bucketization often required</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>RoPE (Rotary Positional Encoding)</strong></td>
+<td><span class="math display">\[Q_t^{\text{rot}}=R_tQ_t,\; K_t^{\text{rot}}=R_tK_t\]</span> <span class="math display">\[R_t=\begin{bmatrix}\cos(\theta t)&amp;-\sin(\theta t) \\ \sin(\theta t)&amp;\cos(\theta t)\end{bmatrix}\]</span></td>
+<td>Encode positions as <strong>rotations</strong>; relative position emerges from angle differences</td>
+<td>Smooth, elegant; widely used (LLaMA/Qwen); supports relative shifts</td>
+<td>High‑frequency rotation grows too fast → breaks at very long context</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>ALiBi (Attention Linear Bias)</strong></td>
+<td><span class="math display">\[\text{score}_{ij} += w_h (i-j)\]</span></td>
+<td>Apply <strong>linear distance penalty</strong>, like a soft mask → model naturally prefers recent tokens</td>
+<td>Perfect long‑context extrapolation; no computation overhead</td>
+<td>No rotational/periodic structure; may weaken modeling of long‑distance patterns</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Position Insertion (PI)</strong></td>
+<td><span class="math display">\[t' = \frac{L}{L_{\text{new}}}\cdot t\]</span></td>
+<td>Compress long sequence positions back into training length → model sees familiar ranges</td>
+<td>Extremely simple; works decently; improved by quick fine‑tuning</td>
+<td>Pure interpolation → may distort long‑range structure</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Base‑N Positional Encoding</strong></td>
+<td><span class="math display">\[t = \sum_k d_k B^k,\quad PE_k(t) = d_k\]</span></td>
+<td>Treat position as <strong>digits</strong> in multiple bases; digit count grows naturally</td>
+<td>Infinite extrapolation; multi‑scale; simple math</td>
+<td>Discontinuous jumps; may need smoothing / fine‑tuning</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>NTK‑aware RoPE Scaling</strong></td>
+<td><span class="math display">\[\theta' = \theta / s\]</span></td>
+<td>Slow down all RoPE frequencies → prevent angle explosion</td>
+<td>Easy, effective; improves long‑context stability</td>
+<td>Uniform scaling may under/over‑correct different frequencies</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>NTK by Parts (Frequency‑segmented NTK)</strong></td>
+<td><span class="math display">\[\theta'_i = \theta_i / s\cdot{\text{part}(i)}\]</span></td>
+<td>Low freq → keep; mid freq → mild scale; high freq → strong scale</td>
+<td>Better balance than global NTK; reduces distortion</td>
+<td>More parameters; requires careful design</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Dynamic NTK</strong></td>
+<td><span class="math display">\[\theta'_i = \theta_i \cdot \frac{m}{\beta^{d/2-1}}\]</span></td>
+<td>Per‑dimension adaptive scaling; distributes “frequency stress” smarter</td>
+<td>Most adaptive NTK variant; very stable long‑range</td>
+<td>Harder to derive; more implementation steps</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>YaRN (Yet Another RoPE Extension)</strong></td>
+<td><span class="math display">\[\text{softmax}\left(\frac{q_m^\top k_n}{t \sqrt{d_k}}\right)\]</span> with <span class="math inline">\(q, k\)</span> scaled by <span class="math inline">\(\sqrt{1/t}\)</span>, <span class="math display">\[\sqrt{1/t}=0.1 \ln(s)+1\]</span></td>
+<td>Combine <strong>frequency scaling + controlled growth</strong> → avoids over‑shrink &amp; under‑rotation</td>
+<td>SOTA long‑context RoPE scaling; robust and smooth</td>
+<td>Implementation slightly more complex</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Intuitively</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Key Idea</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>RPE</td>
+<td>Learn distances</td>
+</tr>
+<tr class="even">
+<td>RoPE</td>
+<td>Encode angle rotation</td>
+</tr>
+<tr class="odd">
+<td>NTK</td>
+<td>Slow down rotation globally</td>
+</tr>
+<tr class="even">
+<td>NTK parts</td>
+<td>Slow down rotation by frequency segment</td>
+</tr>
+<tr class="odd">
+<td>Dynamic NTK</td>
+<td>Smart per‑dimension scaling</td>
+</tr>
+<tr class="even">
+<td>YaRN</td>
+<td>Best RoPE scaling (balanced + stable)</td>
+</tr>
+<tr class="odd">
+<td>ALiBi</td>
+<td>Linear recency bias = soft mask</td>
+</tr>
+<tr class="even">
+<td>PI</td>
+<td>Compress indices back to training max</td>
+</tr>
+<tr class="odd">
+<td>Base‑N</td>
+<td>Interpret positions as digits</td>
+</tr>
+<tr class="even">
+<td>Intra-token</td>
+<td>Arbitrary distance mapping</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="architecture" class="level1">
+<h1>Architecture</h1>
+<ol type="1">
+<li><p>Encoder‑Only Models (Bi‑Directional)</p>
+<ul>
+<li>Definition: encoder‑only models compute attention over both the left and right context: <span class="math display">\[
+\mathrm{Attention}(x_i) = f(x_{&lt;i}, x_i, x_{&gt;i})
+\]</span></li>
+<li>Characteristics
+<ul>
+<li>Naturally <strong>bi‑directional</strong> → good for <strong>feature extraction</strong>, embeddings, classification.</li>
+<li>Pretraining objective usually <strong>MLM (Masked LM)</strong>.</li>
+<li>Not suitable for generation by themselves.</li>
+</ul></li>
+<li>Examples: BERT, RoBERTa, DeBERTa</li>
+</ul></li>
+<li><p>Decoder‑Only Models (Auto‑Regressive)</p>
+<ul>
+<li>Definition: next‑token prediction. Masked causal attention ensures only left context is accessible: <span class="math display">\[
+p(x_t \mid x_{&lt;t})
+\]</span></li>
+<li>Characteristics
+<ul>
+<li>Ideal for <strong>generation</strong>.</li>
+<li>Naturally supports <strong>zero‑shot</strong>, <strong>few‑shot</strong> prompting.</li>
+<li>Efficient training (causal LM).</li>
+<li>Unified pretraining → directly used for downstream tasks.</li>
+</ul></li>
+<li>Examples: GPT, GPT‑2/3/4, LLaMA, BLOOM, OPT, Mistral</li>
+</ul></li>
+<li><p>Encoder‑Decoder Models (Seq2Seq)</p>
+<ul>
+<li><p>Encoder <span class="math display">\[
+h = \text{Enc}(x_{1:n}), \quad \text{bi‑directional}
+\]</span></p></li>
+<li><p>Decoder <span class="math display">\[
+p(y_t \mid y_{&lt;t}, h), \quad \text{auto‑regressive}
+\]</span></p></li>
+<li><p>Characteristics</p>
+<ul>
+<li>Best for <strong>machine translation</strong>, summarization, instruction models.</li>
+<li>Decoder attends to both the encoder output and its own past.</li>
+</ul></li>
+<li><p>Examples: T5, Flan‑T5, BART</p></li>
+</ul></li>
+<li><p>PrefixLM (Partial Causal Masking)</p>
+<ul>
+<li>A hybrid: the <strong>prefix</strong> is encoded bi‑directionally; the <strong>suffix</strong> is decoded causally. This gives encoder‑decoder benefits with decoder‑only efficiency.</li>
+<li>Mask <span class="math display">\[
+  M_{ij} =
+  \begin{cases}
+  0, &amp; j \leq P \\ (\text{prefix bi‑dir})\\
+  0, &amp; j &lt; i \\ (\text{causal})\\
+  -\infty, &amp; \text{otherwise}
+  \end{cases}
+  \]</span></li>
+<li>Examples: GLM, U‑PaLM</li>
+</ul></li>
+<li><p>Mixture of Experts (MoE)</p>
+<p>Replaces a single feedforward block with <strong>multiple experts</strong> <span class="math display">\[
+\mathrm{FFN}(x) = \sum_{k=1}^{N} g_k(x)\, E_k(x)
+\]</span> Where</p>
+<ol type="1">
+<li><span class="math inline">\(E_k\)</span> = expert networks<br>
+</li>
+<li><span class="math inline">\(g_k\)</span> = gating weights (softmax or top‑<span class="math inline">\(k\)</span>)</li>
+</ol>
+<ul>
+<li>Gating Functions
+<ul>
+<li>Linear gate</li>
+<li>GLU gate</li>
+<li>Domain routing</li>
+<li>Expert‑choice gating</li>
+<li>Attention router</li>
+</ul></li>
+<li>SoftMoE
+<ul>
+<li>Experts are merged into a single FNN via soft combination: <span class="math display">\[
+  \mathrm{SoftMoE}(x)=W\Big(\sum_k g_k(x) E_k(x)\Big)
+  \]</span></li>
+<li>Examples: DeepSeek V2/V3, Mistral MoE, Switch Transformer</li>
+</ul></li>
+</ul></li>
+</ol>
+<p>Summary | Architecture | Attention Style | Objective | Strengths | Examples | | ————— | ————— | ——— | ————————– | —————– | | Encoder‑Only | Bi‑directional | MLM | Feature extraction | BERT | | Decoder‑Only | Causal | NLL | Generation, zero‑shot | GPT, LLaMA | | Encoder‑Decoder | Bi‑dir + Causal | Seq2Seq | Translation, summarization | T5, BART | | PrefixLM | Hybrid mask | Prefix | Reasoning, dialogue | GLM | | MoE | Routed Experts | Sparse | Efficient scaling | DeepSeek, Mistral |</p>
+</section>
+<section id="decoding" class="level1">
+<h1>Decoding</h1>
+<p>Decoding = sampling the next token from the model’s distribution: <span class="math display">\[
+p(x_t \mid x_{&lt;t})
+\]</span> Different methods trade off <strong>diversity</strong>, <strong>coherence</strong>, and <strong>accuracy</strong>.</p>
+<section id="greedy-search-code" class="level3">
+<h3 class="anchored" data-anchor-id="greedy-search-code">Greedy Search <a href="1.6.1.greedy_search.py">[code]</a></h3>
+<p><span class="math display">\[
+x_t = \arg\max_i p(i \mid x_{&lt;t})
+\]</span> * Always pick the highest‑probability token. * Fast but deterministic → <strong>monotonic / repetitive</strong>.</p>
+</section>
+<section id="beam-search-code" class="level3">
+<h3 class="anchored" data-anchor-id="beam-search-code">Beam Search <a href="1.6.2.beam_search.py">[code]</a></h3>
+<p>Keeps top‑<span class="math inline">\(B\)</span> candidates: <span class="math display">\[
+\mathrm{Beam}_t = \text{TopB}\left( \prod_{\tau=1}^t p(x_\tau) \right)
+\]</span> * More global optimality. * Often too conservative for creative tasks.</p>
+</section>
+<section id="topk-sampling-code" class="level3">
+<h3 class="anchored" data-anchor-id="topk-sampling-code">Top‑k Sampling <a href="1.6.3.top_k_sampling.py">[code]</a></h3>
+<p>Draw from the top‑<span class="math inline">\(k\)</span> tokens: <span class="math display">\[
+P_k = \text{TopK}(p),\quad x_t \sim P_k
+\]</span> * Works well when distribution is <strong>peaked</strong>. * Poor when distribution is <strong>flat</strong>.</p>
+</section>
+<section id="topp-sampling-nucleus-sampling-code" class="level3">
+<h3 class="anchored" data-anchor-id="topp-sampling-nucleus-sampling-code">Top‑p Sampling (Nucleus Sampling) <a href="1.6.4.top_p_sampling.py">[code]</a></h3>
+<p>Choose smallest set <span class="math inline">\(S\)</span> such that: <span class="math display">\[
+\sum_{i\in S} p(i) \ge p
+\]</span> Then sample: <span class="math display">\[
+x_t \sim S
+\]</span> * Adaptive; avoids fixed <span class="math inline">\(k\)</span>. * Very stable for creative generation.</p>
+</section>
+<section id="temperature-sampling" class="level3">
+<h3 class="anchored" data-anchor-id="temperature-sampling">Temperature Sampling</h3>
+<p>Scaled logits: <span class="math display">\[
+p_i' = \frac{\exp(z_i / T)}{\sum_j \exp(z_j / T)}
+\]</span> * <span class="math inline">\(T&gt;1\)</span>: makes distribution <strong>flatter</strong> → more random. * <span class="math inline">\(T&lt;1\)</span>: makes distribution <strong>sharper</strong> → more deterministic.</p>
+</section>
+<section id="kpt-k-p-t-pipeline" class="level3">
+<h3 class="anchored" data-anchor-id="kpt-k-p-t-pipeline">KPT (k → p → T Pipeline)</h3>
+<p>Apply:</p>
+<ol type="1">
+<li><strong>Top‑k</strong></li>
+<li><strong>Top‑p</strong></li>
+<li><strong>Temperature</strong></li>
+</ol>
+<p>This filters noise, preserves diversity, and controls randomness.</p>
+</section>
+<section id="bestofn-selfscoring" class="level3">
+<h3 class="anchored" data-anchor-id="bestofn-selfscoring">Best‑of‑N (Self‑Scoring)</h3>
+<p>Generate <span class="math inline">\(N\)</span> samples: <span class="math display">\[
+\{y^{(1)}, y^{(2)}, \ldots, y^{(N)}\}
+\]</span> Then score them using either:</p>
+<ul>
+<li>the <strong>LLM itself</strong>, or</li>
+<li>a <strong>reward model</strong></li>
+</ul>
+<p>Pick the best.</p>
+</section>
+<section id="majority-voting-selfconsistency" class="level3">
+<h3 class="anchored" data-anchor-id="majority-voting-selfconsistency">Majority Voting / Self‑Consistency</h3>
+<p>Generate multiple chains: <span class="math display">\[
+y^{(1)}, y^{(2)}, \ldots, y^{(N)}
+\]</span> Choose the majority or cluster center.<br>
+Used in reasoning tasks:</p>
+<ul>
+<li>Reduces hallucination</li>
+<li>Amplifies correct reasoning paths</li>
+</ul>
+<p>Summary</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 17%">
+<col style="width: 12%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Deterministic?</th>
+<th>Diversity</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Greedy</td>
+<td>Yes</td>
+<td>Low</td>
+<td>Simple, repetitive</td>
+</tr>
+<tr class="even">
+<td>Beam Search</td>
+<td>Semi</td>
+<td>Low</td>
+<td>Conservative</td>
+</tr>
+<tr class="odd">
+<td>Top‑k</td>
+<td>No</td>
+<td>Medium</td>
+<td>Fails if distribution is flat</td>
+</tr>
+<tr class="even">
+<td>Top‑p</td>
+<td>No</td>
+<td>High</td>
+<td>Adaptive nucleus</td>
+</tr>
+<tr class="odd">
+<td>Temp</td>
+<td>No</td>
+<td>Adjustable</td>
+<td>Directly controls randomness</td>
+</tr>
+<tr class="even">
+<td>KPT</td>
+<td>No</td>
+<td>High</td>
+<td>Robust combined method</td>
+</tr>
+<tr class="odd">
+<td>Best‑of‑N</td>
+<td>Yes</td>
+<td>High</td>
+<td>Needs a scoring model</td>
+</tr>
+<tr class="even">
+<td>Majority / Self‑Consistency</td>
+<td>Yes</td>
+<td>Very high</td>
+<td>Great for reasoning</td>
+</tr>
+</tbody>
+</table>
+
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
