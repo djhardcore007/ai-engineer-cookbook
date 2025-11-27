@@ -1,0 +1,336 @@
+[
+  {
+    "objectID": "llm/8.multimodal.html",
+    "href": "llm/8.multimodal.html",
+    "title": "8. Multimodal",
+    "section": "",
+    "text": "Multimodal models combining text with vision, audio, and actions; brief taxonomy and references.",
+    "crumbs": [
+      "Home",
+      "LLM",
+      "8. Multimodal"
+    ]
+  },
+  {
+    "objectID": "llm/8.multimodal.html#overview",
+    "href": "llm/8.multimodal.html#overview",
+    "title": "8. Multimodal",
+    "section": "",
+    "text": "Multimodal models combining text with vision, audio, and actions; brief taxonomy and references.",
+    "crumbs": [
+      "Home",
+      "LLM",
+      "8. Multimodal"
+    ]
+  },
+  {
+    "objectID": "llm/6.training_inference.html",
+    "href": "llm/6.training_inference.html",
+    "title": "6. Training & Inference",
+    "section": "",
+    "text": "Notes on efficient training and inference: batching, KV cache, quantization, distillation, serving patterns.",
+    "crumbs": [
+      "Home",
+      "LLM",
+      "6. Training & Inference"
+    ]
+  },
+  {
+    "objectID": "llm/6.training_inference.html#overview",
+    "href": "llm/6.training_inference.html#overview",
+    "title": "6. Training & Inference",
+    "section": "",
+    "text": "Notes on efficient training and inference: batching, KV cache, quantization, distillation, serving patterns.",
+    "crumbs": [
+      "Home",
+      "LLM",
+      "6. Training & Inference"
+    ]
+  },
+  {
+    "objectID": "llm/4.common_models.html",
+    "href": "llm/4.common_models.html",
+    "title": "4. Common Models",
+    "section": "",
+    "text": "This chapter will summarize widely used LLM architectures and families (GPT, LLaMA, T5, Mistral, etc.), with notes on design choices and trade-offs.",
+    "crumbs": [
+      "Home",
+      "LLM",
+      "4. Common Models"
+    ]
+  },
+  {
+    "objectID": "llm/4.common_models.html#overview",
+    "href": "llm/4.common_models.html#overview",
+    "title": "4. Common Models",
+    "section": "",
+    "text": "This chapter will summarize widely used LLM architectures and families (GPT, LLaMA, T5, Mistral, etc.), with notes on design choices and trade-offs.",
+    "crumbs": [
+      "Home",
+      "LLM",
+      "4. Common Models"
+    ]
+  },
+  {
+    "objectID": "llm/2.pretraining.html#data",
+    "href": "llm/2.pretraining.html#data",
+    "title": "2. Pretraining",
+    "section": "Data",
+    "text": "Data",
+    "crumbs": [
+      "Home",
+      "LLM",
+      "2. Pretraining"
+    ]
+  },
+  {
+    "objectID": "llm/2.pretraining.html#procedure",
+    "href": "llm/2.pretraining.html#procedure",
+    "title": "2. Pretraining",
+    "section": "Procedure",
+    "text": "Procedure",
+    "crumbs": [
+      "Home",
+      "LLM",
+      "2. Pretraining"
+    ]
+  },
+  {
+    "objectID": "llm/2.pretraining.html#continue-pretrain",
+    "href": "llm/2.pretraining.html#continue-pretrain",
+    "title": "2. Pretraining",
+    "section": "Continue pretrain",
+    "text": "Continue pretrain",
+    "crumbs": [
+      "Home",
+      "LLM",
+      "2. Pretraining"
+    ]
+  },
+  {
+    "objectID": "llm/2.pretraining.html#inference-time",
+    "href": "llm/2.pretraining.html#inference-time",
+    "title": "2. Pretraining",
+    "section": "Inference time",
+    "text": "Inference time",
+    "crumbs": [
+      "Home",
+      "LLM",
+      "2. Pretraining"
+    ]
+  },
+  {
+    "objectID": "llm/2.pretraining.html#evaluation",
+    "href": "llm/2.pretraining.html#evaluation",
+    "title": "2. Pretraining",
+    "section": "Evaluation",
+    "text": "Evaluation",
+    "crumbs": [
+      "Home",
+      "LLM",
+      "2. Pretraining"
+    ]
+  },
+  {
+    "objectID": "llm/2.pretraining.html#benchmark",
+    "href": "llm/2.pretraining.html#benchmark",
+    "title": "2. Pretraining",
+    "section": "Benchmark",
+    "text": "Benchmark",
+    "crumbs": [
+      "Home",
+      "LLM",
+      "2. Pretraining"
+    ]
+  },
+  {
+    "objectID": "llm/2.pretraining.html#ppl",
+    "href": "llm/2.pretraining.html#ppl",
+    "title": "2. Pretraining",
+    "section": "PPL",
+    "text": "PPL",
+    "crumbs": [
+      "Home",
+      "LLM",
+      "2. Pretraining"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "AI Engineer Cookbook",
+    "section": "",
+    "text": "Contact Author: florence.jiang@nyu.edu",
+    "crumbs": [
+      "Home",
+      "AI Engineer Cookbook"
+    ]
+  },
+  {
+    "objectID": "index.html#chapters",
+    "href": "index.html#chapters",
+    "title": "AI Engineer Cookbook",
+    "section": "Chapters",
+    "text": "Chapters\n\n1. Foundation\n2. Pretraining\n3. Post-training\n4. Common Models\n5. Applications\n6. Training & Inference\n7. Compression\n8. Multimodal",
+    "crumbs": [
+      "Home",
+      "AI Engineer Cookbook"
+    ]
+  },
+  {
+    "objectID": "llm/1.foundation.html",
+    "href": "llm/1.foundation.html",
+    "title": "1. Foundation",
+    "section": "",
+    "text": "3 types: char, word, subwords\n\nword: 1) OOV 2) long-tail effect 3) won’t learn the shared meaning between swim and swimming.\nchar: sequence length too long → expensive compute.\nsubword units.\n\nSubwords Methodologies\n\n\nStart with 26 chars + punctuation, a training corpus, and a required vocab size \\(V\\).\n\nSplit all tokens into sub-pieces, e.g. cat → [c, a, t, ca, at, cat].\n\nQuestion: how to merge units into \\(|V|\\) important subwords so that you best represent the corpus? You need an importance score over candidate subwords.\n\n3 methods\n\nBPE / Byte-level BPE.\nMerge on frequency. Count frequencies of all units, merge subwords that reduce the description length / token count, and update the vocab. Start from the most frequent units (usually chars).\n[code]\nBBPE: Byte-level BPE.\n\nInstead of using strings, use bytes.\nPros:\n\nBPE enables multilingual learning.\nCompression.\nNot just for text; can also work on images etc.\n\n\nWordPiece: find \\(|V|\\) subwords that give the best log-likelihood of the training corpus \\(S\\). text       token x, y --&gt; token z \\[\n  \\log P(z) - (\\log P(x) + \\log P(y))\n  = \\log \\frac{P(z)}{P(x)P(y)}\n  \\]\nUnigram Language Model\n\nHow to score if a token is important? A token is important if deleting it (and only using its sub-units) causes larger loss for the unigram model.\nKeep single-char tokens to avoid OOV. \\[\n  p(x) = \\prod_i p(x_i), \\qquad\n  \\hat{x} = \\arg\\max_x p(x)\n  \\]\n\n\n\nComparisons\n\nBPE and WordPiece: how to merge? From small vocab to big.\nUnigram LM: how to use the LM to shrink vocab from big to small?\n\nTokenization is the root of a lot of issues: because LLMs are next-token predictors, they struggle with exact arithmetic.",
+    "crumbs": [
+      "Home",
+      "LLM",
+      "1. Foundation"
+    ]
+  },
+  {
+    "objectID": "llm/1.foundation.html#tokenization",
+    "href": "llm/1.foundation.html#tokenization",
+    "title": "1. Foundation",
+    "section": "",
+    "text": "3 types: char, word, subwords\n\nword: 1) OOV 2) long-tail effect 3) won’t learn the shared meaning between swim and swimming.\nchar: sequence length too long → expensive compute.\nsubword units.\n\nSubwords Methodologies\n\n\nStart with 26 chars + punctuation, a training corpus, and a required vocab size \\(V\\).\n\nSplit all tokens into sub-pieces, e.g. cat → [c, a, t, ca, at, cat].\n\nQuestion: how to merge units into \\(|V|\\) important subwords so that you best represent the corpus? You need an importance score over candidate subwords.\n\n3 methods\n\nBPE / Byte-level BPE.\nMerge on frequency. Count frequencies of all units, merge subwords that reduce the description length / token count, and update the vocab. Start from the most frequent units (usually chars).\n[code]\nBBPE: Byte-level BPE.\n\nInstead of using strings, use bytes.\nPros:\n\nBPE enables multilingual learning.\nCompression.\nNot just for text; can also work on images etc.\n\n\nWordPiece: find \\(|V|\\) subwords that give the best log-likelihood of the training corpus \\(S\\). text       token x, y --&gt; token z \\[\n  \\log P(z) - (\\log P(x) + \\log P(y))\n  = \\log \\frac{P(z)}{P(x)P(y)}\n  \\]\nUnigram Language Model\n\nHow to score if a token is important? A token is important if deleting it (and only using its sub-units) causes larger loss for the unigram model.\nKeep single-char tokens to avoid OOV. \\[\n  p(x) = \\prod_i p(x_i), \\qquad\n  \\hat{x} = \\arg\\max_x p(x)\n  \\]\n\n\n\nComparisons\n\nBPE and WordPiece: how to merge? From small vocab to big.\nUnigram LM: how to use the LM to shrink vocab from big to small?\n\nTokenization is the root of a lot of issues: because LLMs are next-token predictors, they struggle with exact arithmetic.",
+    "crumbs": [
+      "Home",
+      "LLM",
+      "1. Foundation"
+    ]
+  },
+  {
+    "objectID": "llm/1.foundation.html#embedding",
+    "href": "llm/1.foundation.html#embedding",
+    "title": "1. Foundation",
+    "section": "Embedding",
+    "text": "Embedding\n\nWhy? Word embeddings are dense representations that capture semantic meanings. It’s basically training an MLP to map one-hot vectors into dense vectors that represent word meaning.\nLookup table nn.Embedding(vocab_size, embedding_dim) turns a \\(|V|\\)-dim one-hot vector into a 512/768‑dim dense vector.\nEverything is a mapping: map a word into a vector, a sentence into a vector, or tokens into a high‑dimensional embedding space. The question is: how do you train that mapping?\nEmbedding is injective and (approximately) structure‑preserving.\nMethods\n\none‑hot\n\nProblems: dimensionality explosion; every token is orthogonal, so you can’t directly learn semantic similarity.\nIn some cases, you can do one‑hot encoding + PCA.\nWhy use one‑hot? It turns discrete IDs into a structured continuous space where each feature is orthogonal.\n\ndistributed representation: you need to turn one‑hot features into Euclidean space so you can measure \\(L_p\\) distances. Dense representation is (1) easy to measure similarity and (2) more compact.\nword2vec: predict target word given context words.\n\nCBOW (Continuous Bag of Words)\n\nGiven the words around the blank, what word should be in the blank?\nAverage over context words’ embeddings.\nIgnores order.\n\n\nContext Words\nContext words: \\(w_1, w_2, \\dots, w_C\\)\nTarget word: \\(w_t\\)\nOne‑Hot Encoding\nEach word is a one‑hot vector of size \\(V\\) (vocabulary size): \\[\nx_i \\in \\mathbb{R}^V\n\\]\nEmbedding Lookup\nEmbedding matrix: \\[\nW \\in \\mathbb{R}^{V \\times D}\n\\] Word embedding for context word \\(w_i\\): \\[\nv_i = W^T x_i\n\\] (Just selects the word’s embedding row.)\nHidden layer: average the context vectors \\[\n  h = \\frac{1}{C} \\sum_{i=1}^{C} v_i\n  \\]\nOutput Layer\nSecond matrix: \\[\nW' \\in \\mathbb{R}^{D \\times V}\n\\] Scores for all words: \\[\nu = {W'}^T h\n\\]\nSoftmax Prediction \\[\n  p(w_t \\mid \\text{context}) =\n  \\frac{\\exp(u_t)}{\\sum_{j=1}^{V} \\exp(u_j)}\n  \\] Maximize the probability of the target word: \\[\n  \\max \\log p(w_t \\mid \\text{context})\n  \\] (Usually approximated with negative sampling)\n\n\nskip‑gram: predict context words FROM the target word.\nFastText: still uses CBOW or Skip‑Gram, but replaces the word embedding with the sum of its character n‑gram vectors.\nGiven word playing, n‑grams with \\(n = 3\\): &lt;pl, pla, lay, ayi, yin, ing, ng&gt; + &lt;playing&gt; (sliding window size = 3)\nEmbedding of the word playing is now \\[\n  v_{\\text{playing}} = \\sum_{g \\in G} z_g\n  \\] Where:\n\n\\(G\\) = set of character n‑grams of the word\n\\(z_g\\) = embedding vector of each n‑gram\n\nThen apply CBOW or skip‑gram on top: \\[\n  \\max \\sum_{c \\in \\text{context}} \\log p\\bigl(c \\mid \\text{ngrams}(w_t)\\bigr)\n  \\] This works because granularity is better: (1) fewer OOVs, (2) more efficient since vocab size drops.\n\nword2vec: how to accelerate?\n\nhierarchical softmax\n\nBinary tree. Complexity: \\(|V| \\to \\log V\\).\nHigher‑freq words are located closer to the root.\n“Greedy optimization”.\nCons: if the word is rare, you have to go deep into the tree.\n\nNegative sampling\n\nDefinition: a training trick used in word2vec (CBOW & Skip‑Gram) to avoid computing a slow full softmax over the entire vocabulary.\nWhy? Faster and more efficient.\nHow?\n\nFull softmax requires a sum over all \\(V\\) words, which is extremely slow when \\(V\\) is large.\nNegative sampling replaces this expensive softmax with a binary classification task.\n1 positive example (the true target/context word): text   (target = \"cat\", context = \"cute\") \\(K\\) negative examples (random wrong words): text   (\"cat\", \"banana\")   (\"cat\", \"engine\")   (\"cat\", \"chair\")\nMath\nPositive example: \\[\n  \\log \\sigma \\bigl(v_{\\text{context}}^\\top v_{\\text{target}}\\bigr)\n  \\] Negative examples: \\[\n  \\sum_{i=1}^{K} \\log \\sigma \\bigl(-v_{\\text{neg}_i}^\\top v_{\\text{target}}\\bigr)\n  \\] Total loss: \\[\n  L = \\log \\sigma(v_{+}^\\top v_t)\n  + \\sum_{i=1}^{K} \\log \\sigma(-v_{\\text{neg}_i}^\\top v_t)\n  \\] where \\(\\sigma\\) is sigmoid, \\(v_+\\) is the real context embedding, and \\(v_{\\text{neg}_i}\\) are negative embeddings.",
+    "crumbs": [
+      "Home",
+      "LLM",
+      "1. Foundation"
+    ]
+  },
+  {
+    "objectID": "llm/1.foundation.html#attention",
+    "href": "llm/1.foundation.html#attention",
+    "title": "1. Foundation",
+    "section": "Attention",
+    "text": "Attention\n\nWhy?\n\nCore idea: assign importance scores to different tokens and focus on the important ones.\nHandles long sequences by keeping order information.\nParallelizable and efficient to compute.\n\nself‑attention\n\nmodules\n\nvocab embedding: what am I? what word meaning do I have?\npositional embedding: where am I?\nquery: what information are you looking for? captured by the query matrix.\nkey\nvalue: combined with key to construct importance scores. The better the match, the larger the score.\nimportance score becomes \\[\n  \\mathrm{Attention}(Q, K, V) =\n  \\operatorname{softmax}\\left(\\frac{QK^\\top}{\\sqrt{d_k}}\\right) V\n  \\]\nwhy softmax? make sure the scores are normalized to \\([0,1]\\) and sum to 1 (a probability distribution).\nwhy scale? control variance. If \\(d_k\\) is large, the unscaled dot products blow up, softmax saturates, and gradients vanish.\n\n\nself‑attention / encoder attention: full attention; a token can see all other tokens.\ndecoder attention: masked / causal attention; auto‑regressive; prevents data leakage.\ncross attention: queries come from sequence 1, keys and values from sequence 2 (e.g., English vs. Chinese in translation).\nmulti‑head self‑attention: multiple attention “heads” increase model capacity.\nComplexity: \\(O(N^2)\\) where \\(N\\) is the number of tokens per sequence.\nSparse attention\n\nHow? Only study relationships within the closest \\(k\\) tokens (sliding window). This adds a locality prior.\nBy controlling the attention mask, you control locality patterns.\nHand‑engineered masks can be suboptimal; ideally you would learn the sparsity pattern.\n[code]\n\nLinear attention\n\nHow? Swap softmax into linear kernels.\nWhy? Drops complexity from \\(O(N^2)\\) to \\(O(N)\\).\nMath\nSoftmax prevents factorization: \\[\n  \\operatorname{softmax}(QK^\\top)\n  \\] cannot be written as a simple product of smaller matrices.\nIf we use a feature map \\(\\phi\\) and write \\[\n  \\phi(Q)\\phi(K)^\\top\n  \\] we can reorder operations. Instead of: \\[\n  \\operatorname{softmax}(QK^\\top)V \\;\\to\\; O(N^2)\n  \\] we compute: \\[\n  \\phi(Q)\\bigl(\\phi(K)^\\top V\\bigr) \\;\\to\\; O(N)\n  \\]\nwhere \\(\\phi\\) is a kernel feature map:\n\n\n\n\\(\\phi(x)\\)\nRange\nPositive?\n\n\n\n\nReLU(x) + 1\n\\([1, \\infty)\\)\nYes\n\n\nReLU(x)\\(^2\\)\n\\([0, \\infty)\\)\nYes\n\n\nELU(x) + 1\n\\((0, \\infty)\\)\nYes ✓ (best)\n\n\nLeakyReLU(x) + 1\n\\((-\\infty, \\infty)\\)\nNo\n\n\n\\(\\exp(x)\\)\n\\((0, \\infty)\\)\nYes ✓\n\n\n\\(\\cos / \\sin\\)\n\\([-1, 1]\\)\nNo\n\n\n\\(x\\)\n\\((-\\infty, \\infty)\\)\nNo\n\n\n\\(x^2\\)\n\\([0, \\infty)\\)\nYes\n\n\n\nAs long as the kernel feature map is factorized, positive, and smooth, this works and is optimization‑friendly.\nNow there is no explicit \\(N \\times N\\) matrix → no quadratic cost → linear time.\ndownside:\n\nWe lose the normalization effect of softmax.\nAttention distribution becomes less sharp.\nSometimes lower quality on tasks requiring exact token interactions.\nSoftmax enforces a probability distribution over attention weights—linear attention does not.\n\nimplementation of linear attention in transformers\n\nKV cache\n\nMainstream attention in decoders: masked self‑attention, auto‑regressive. It uses all \\(K, V\\) of previous tokens. To avoid recomputing them at each step, we cache previous \\(K, V\\) for efficiency.\n\ninference framework lmdeploy\nFlash‑attention\n\nWhy? For long sequences: you split into chunks, compute attention in tiles, then aggregate.\nHow? Map‑reduce style:\n\nChunk the sequence into blocks (tiles).\nFor each block: load \\(Q, K, V\\) tiles into high‑speed SRAM. Compute attention scores and partial outputs.\nReduce the partial results to final output.\n\nThis avoids materializing the full attention matrix.\nFlash‑attention leads to flash-decoding.\nCompute attention incrementally, tile by tile.\nKeep intermediary data on‑chip (GPU shared memory).\nUse numerically stable softmax with running maxima.\n\nStreaming LLM\n\nMasked self‑attention + tiling to enable efficient auto‑regressive generation over streams.\n\nMHA (multi‑head attention)\n\nWhy multiple heads? Similar to group convolution. Many parallel channels, each focusing on different details / subspaces of the sequence. Each head can learn different semantics: text       head 1: positional patterns       head 2: syntax       head 3: long-range links       head 4: entities / names\n\nMQA (multi‑query attention)\n\nHow it works?\n\nMultiple queries, shared keys, shared values.\n\\(Q\\) still has \\(H\\) heads. But \\(K\\) and \\(V\\) are single‑headed (shared).\n\nWhy?\n\nEfficient in large‑scale inference with only a small performance drop.\n\n\nGrouped‑query attention\n\nWhy? MQA is too extreme (1 group), MHA is expensive (\\(H\\) groups). In between, you have \\(G\\) groups of queries. Each group has multiple heads, and shares \\(K, V\\).\nYou keep good quality while maintaining speed.\n\nMulti‑head latent attention\n\nCombines multi‑head attention and linear attention.\n\nDCA (Dual Chunk Attention)\n\nHow?\n\nSplit long‑form sequence into chunks.\nCalculate attention within a chunk.\nCalculate cross‑block attention: attention between chunks.\nConcat results.\n\nWhy?\n\nEfficient compute.\nLess RAM cost.\n\n\nS2 attention:\n\nHow? (various sparse + sliding schemes for long sequences).",
+    "crumbs": [
+      "Home",
+      "LLM",
+      "1. Foundation"
+    ]
+  },
+  {
+    "objectID": "llm/1.foundation.html#ffn-ln",
+    "href": "llm/1.foundation.html#ffn-ln",
+    "title": "1. Foundation",
+    "section": "FFN + LN",
+    "text": "FFN + LN\n\nWhy FFN?\nAfter MHA, tokens exchange information. The FFN is for local computation. #### Why add residuals? 1. Avoid gradient explosion / vanishing in deep networks. Residuals add shortcut connections. 2. Standard residual: an express lane for information.\n\n\n\n\n\n\n\n\nMethod\nFormula\nNotes\n\n\n\n\nStandard Residual\n\\[x_{l+1} = x_l + f(x_l)\\]\nOriginal ResNet‑style skip connection\n\n\nPost‑LN Transformer\n\\[x_{l+1} = \\text{LN}(x_l + f(x_l))\\]\nUsed in early Transformers (BERT), less stable for deep models\n\n\nPre‑LN Transformer\n\\[x_{l+1} = x_l + f(\\text{LN}(x_l))\\]\nUsed in modern LLMs (GPT, LLaMA), very stable\n\n\nDeepNorm\n\\[x_{l+1} = x_l + \\alpha \\cdot f(\\text{LN}(x_l))\\]  Encoder: \\[\\alpha = \\frac{1}{\\sqrt{2N}}\\]  Decoder: \\[\\alpha = \\frac{1}{\\sqrt{4N}}\\]\nAdds residual scaling so very deep models stay stable; \\(N\\) is ## of layers.\n\n\nReZero\n\\[x_{l+1} = x_l + \\alpha \\cdot f(x_l)\\] (α learnable, init = 0)\nStarts with zero residual; stabilizes early training\n\n\n\n\n\nNormalizations\n\nWhy? Stable convergence; avoid gradients exploding or vanishing.\nTypes\n\nLayerNorm\n\nNormalize over feature dimension = hidden size = embedding size = token vector size (e.g. 512/768).\nMainly for RNNs, Transformers. LayerNorm works per token, across its features.\nLayerNorm does NOT look across tokens. You want each token embedding on a similar scale.\n\nBatchNorm\n\nNormalize over batch_size.\nMainly for CNNs, where you want different images (e.g. faces) on the same scale.\n\nHow to do norm correctly?\n\n\n\n\n\n\n\n\n\n\nMethod\nFormula\nWhat It Normalizes / Changes\nNotes\n\n\n\n\nVanilla LayerNorm\n\\[x_{\\text{norm}} = \\frac{x - \\mathbb{E}[x]}{\\sqrt{\\operatorname{Var}(x)+\\epsilon}} \\cdot \\gamma + \\beta\\]\nNormalizes per token across features (mean + variance)\nStandard LN used in early Transformers\n\n\nRMSNorm\n\\[\\text{RMS}(x)=\\sqrt{\\frac{1}{H}\\sum_{i=1}^{H} x_i^2 + \\epsilon}\\] \\[x_{\\text{norm}} = \\frac{x}{\\text{RMS}(x)} \\cdot \\gamma\\]\nNormalizes only by root mean square (no mean subtraction, no β)\nFaster, more stable; used by LLaMA, T5 (no need to shift, only scale).\n\n\nDeepNorm\n\\[x_{l+1} = x_l + \\alpha \\cdot f(\\text{LN}(x_l))\\] \\[\\text{Encoder: } \\alpha=\\frac{1}{\\sqrt{2N}}, \\quad \\text{Decoder: } \\alpha=\\frac{1}{\\sqrt{4N}}\\]\nScales residual branches, not normalization itself\nEnables very deep transformers (hundreds–thousands of layers)",
+    "crumbs": [
+      "Home",
+      "LLM",
+      "1. Foundation"
+    ]
+  },
+  {
+    "objectID": "llm/1.foundation.html#ffn-activations",
+    "href": "llm/1.foundation.html#ffn-activations",
+    "title": "1. Foundation",
+    "section": "FFN + Activations",
+    "text": "FFN + Activations\n\nTypes of Activation\n\nVanilla FFN activation \\[\n  \\mathrm{FFN}(x) = \\operatorname{ReLU}(xW_1 + b_1)W_2 + b_2\n  \\]\nGLU‑style FFN activation \\[\n  \\mathrm{GLU}(x) = (xV) \\odot (xW + b)\n  \\]\n\\[\n  \\mathrm{FFN}_{\\mathrm{GLU}}(x) = (xV) \\odot \\sigma(x W_1 + b) W_2\n  \\]\nWhy this works: the activation is like a gate. \\(\\sigma\\) is the gate that controls which affine transformation passes through.\nIf you swap \\(\\sigma\\) with Swish or GELU, you get the newer FFN designs used in current LLMs.\n\n\n\nActivation functions\n\n\n\n\n\n\n\n\n\n\nActivation\nFormula\nNotes\n\n\n\n\n\n\nSigmoid\n\\[\\sigma(x) = \\frac{1}{1 + e^{-x}}\\]\nCauses vanishing/exploding gradients; saturates for large \\(|x|\\); expensive due to exponential\n\n\n\n\nTanh\n\\[\\tanh(x) = \\frac{e^x - e^{-x}}{e^x + e^{-x}}\\]\nStill suffers gradient vanishing; exponential compute; zero‑centered\n\n\n\n\nReLU\n\\[\\text{ReLU}(x) = \\max(0, x)\\]\nNo gradient vanishing for \\(x&gt;0\\); not smooth; gradients = 0 for negative values; not zero‑centered\n\n\n\n\nLeaky ReLU\n\\[\\text{LeakyReLU}(x) = \\begin{cases}x, & x&gt;0 \\\\ \\alpha x, & x&lt;0 \\end{cases}\\]\nPrevents dying ReLU; still quite linear; simple compute\n\n\n\n\nELU\n\\[\\text{ELU}(x) = \\begin{cases}x, & x&gt;0 \\\\ \\alpha(e^x - 1), & x&lt;0 \\end{cases}\\]\nSmooth; negative values help shift mean; exponential = costly\n\n\n\n\nSwish\n\\[\\text{Swish}(x) = x \\cdot \\sigma(x)\\]\nSmooth, non‑monotonic; excellent performance in deep nets\n\n\n\n\nGELU\n\\[\\text{GELU}(x) = x \\cdot \\Phi(x)\\] \\(\\Phi\\) = Gaussian CDF\nUsed in Transformers; smooth, probabilistic gating behavior\n\n\n\n\nSwiGLU\n\\[\\text{SwiGLU}(x) = \\text{Swish}(x_1) \\odot x_2\\]\nMost effective MLP activation in modern LLMs\n\n\n\n\nSoftmax\n\\[\\text{softmax}(x_i) = \\frac{e^{x_i}}{\\sum_j e^{x_j}}\\]\nConverts logits to a probability distribution",
+    "crumbs": [
+      "Home",
+      "LLM",
+      "1. Foundation"
+    ]
+  },
+  {
+    "objectID": "llm/1.foundation.html#positional-encoding",
+    "href": "llm/1.foundation.html#positional-encoding",
+    "title": "1. Foundation",
+    "section": "Positional Encoding",
+    "text": "Positional Encoding\nWhy? Transformers don’t learn order by default.\n\nTypes\n\nAbsolute positional encoding \\[\n  PE(t) = [\\sin(\\omega_0 t), \\sin(\\omega_1 t), \\dots, \\sin(\\omega_n t)]\n  \\] \\[\n  \\omega_i = 10000^{-i/d_{\\text{model}}}\n  \\]\n\nWordEmbedding + PositionalEmbedding: use ADD, not CONCAT.\nWhen you visualize it: visual\nFor very long sequences, fixed sin/cos frequencies can become problematic.\nAttention requires pairwise dot‑products; positional encodings can be baked into those dot‑products.\nHow to solve long‑context issues?\nBERT: learn an MLP / embedding table for positions. Initialize a \\([512, 768]\\) matrix, concat with word embeddings, then learn the positional matrix. Downside: cannot process longer than the max length (e.g., 512 tokens).\nRNN positional encoding: add an RNN on top of word embeddings so RNN learns positions. Downside: cannot fully parallelize.\n\nRelative positional encoding\n\nIntra‑token distances: Construct a relative distance measure between token \\(i\\) and \\(j\\): \\(f(|i-j|)\\).\n2 Major variants:\n\nRoPE: if the encoding is embedded into attention.\nALiBi: if the encoding is added as a soft bias in attention; you penalize weights of tokens \\(j\\) farther from token \\(i\\).\n\n\n\n\n\nFancy Positional Encoding Methods\n\n\n\n\n\n\n\n\n\nMethod\nFormula\nWhat It Encodes\nIntuition\n\n\n\n\nSinusoidal (Absolute)\n\\[PE(t)_i = \\sin(t \\cdot \\omega_i),\\quad \\omega_i = 10000^{-i/d}\\]\nAbsolute position index\nEach position gets a unique “wave signature.” Different frequencies let the model infer order (like reading a timestamp).\n\n\nLearned Absolute\n\\[PE(t) = E_t\\]\nAbsolute position index\nThe model learns a table of positional vectors, like a “positional vocabulary.”\n\n\nRelative (Shaw et al.)\n\\[\\text{score}_{ij} = Q_i K_j^\\top + a_{i-j}\\]\nRelative distance \\((i-j)\\)\nInstead of “where are they,” it learns “how far apart are they.” This matches how language works (“this word modifies the next one”).\n\n\nIntra-token Distance (General)\n\\[PE(i,j) = f(\\lvert i-j \\rvert)\\]\nArbitrary distance functions\nCan define any mapping from distance → bias. ALiBi and T5 are specific cases of this general framework.\n\n\nALiBi (Attention Linear Bias)\n\\[\\text{score}_{ij} += w_h \\cdot (i - j)\\]\nLinear distance penalty\nFar‑away tokens get a soft negative penalty → similar to a soft mask that encourages attending to recent tokens. Generalizes to very long sequences.\n\n\nRoPE (Rotary Position Embedding)\n\\[Q_t^{\\text{rot}}=R_tQ_t,\\quad K_t^{\\text{rot}}=R_tK_t\\]  \\[R_t=\\begin{bmatrix}\\cos(\\theta t)&-\\sin(\\theta t)\\\\\\sin(\\theta t)&\\cos(\\theta t)\\end{bmatrix}\\]\nEncodes relative shift through geometric rotation\nPositions rotate Q/K vectors in a circular space. Relative distances become differences in rotation. Elegant, smooth, natural for attention.\n\n\nT5 / DeBERTa (Relative Bias)\n\\[\\text{score}_{ij} = Q_i K_j^\\top + b_{\\lvert i-j \\rvert}\\]\nBucketed distances\nDistances are grouped into buckets. “Far but not too far” gets the same bucket. Stable and easy for NLP tasks.\n\n\n\nMy intuition is that\n\nSinusoidal / sin wave → every position = unique wave pattern\nLearned → positions learned like embeddings\nShaw Relative → model learns “how far apart”\nALiBi → soft distance mask (recent &gt; far)\nRoPE → rotate queries/keys; relative emerges naturally\nT5/DeBERTa → distance buckets (coarse relative)\nIntra-token → any distance function you want\n\n\n\nLength Extrapolation\n\ndef: when input sequence is too long. Training seq length is, say, 20k; inference seq 128k. Model collapses because it never saw tokens at such large positions.\nGoal: encode positional info so the model can extrapolate to very long lengths.\n\n\n\n\n\n\n\n\n\n\n\n\n\nMethod\nMath (Core Formula)\nIntuition (Why it works)\nPros\nCons\n\n\n\n\n\n\nRPE (Relative Position Embedding)\n\\[\\text{score}_{ij} = Q_i K_j^\\top + a(i-j)\\]\nEncode relative distance rather than absolute position → natural for long sequences\nGood extrapolation; matches linguistic structure; stable\nNeeds learned embeddings; bucketization often required\n\n\n\n\nRoPE (Rotary Positional Encoding)\n\\[Q_t^{\\text{rot}}=R_tQ_t,\\; K_t^{\\text{rot}}=R_tK_t\\] \\[R_t=\\begin{bmatrix}\\cos(\\theta t)&-\\sin(\\theta t) \\\\ \\sin(\\theta t)&\\cos(\\theta t)\\end{bmatrix}\\]\nEncode positions as rotations; relative position emerges from angle differences\nSmooth, elegant; widely used (LLaMA/Qwen); supports relative shifts\nHigh‑frequency rotation grows too fast → breaks at very long context\n\n\n\n\nALiBi (Attention Linear Bias)\n\\[\\text{score}_{ij} += w_h (i-j)\\]\nApply linear distance penalty, like a soft mask → model naturally prefers recent tokens\nPerfect long‑context extrapolation; no computation overhead\nNo rotational/periodic structure; may weaken modeling of long‑distance patterns\n\n\n\n\nPosition Insertion (PI)\n\\[t' = \\frac{L}{L_{\\text{new}}}\\cdot t\\]\nCompress long sequence positions back into training length → model sees familiar ranges\nExtremely simple; works decently; improved by quick fine‑tuning\nPure interpolation → may distort long‑range structure\n\n\n\n\nBase‑N Positional Encoding\n\\[t = \\sum_k d_k B^k,\\quad PE_k(t) = d_k\\]\nTreat position as digits in multiple bases; digit count grows naturally\nInfinite extrapolation; multi‑scale; simple math\nDiscontinuous jumps; may need smoothing / fine‑tuning\n\n\n\n\nNTK‑aware RoPE Scaling\n\\[\\theta' = \\theta / s\\]\nSlow down all RoPE frequencies → prevent angle explosion\nEasy, effective; improves long‑context stability\nUniform scaling may under/over‑correct different frequencies\n\n\n\n\nNTK by Parts (Frequency‑segmented NTK)\n\\[\\theta'_i = \\theta_i / s\\cdot{\\text{part}(i)}\\]\nLow freq → keep; mid freq → mild scale; high freq → strong scale\nBetter balance than global NTK; reduces distortion\nMore parameters; requires careful design\n\n\n\n\nDynamic NTK\n\\[\\theta'_i = \\theta_i \\cdot \\frac{m}{\\beta^{d/2-1}}\\]\nPer‑dimension adaptive scaling; distributes “frequency stress” smarter\nMost adaptive NTK variant; very stable long‑range\nHarder to derive; more implementation steps\n\n\n\n\nYaRN (Yet Another RoPE Extension)\n\\[\\text{softmax}\\left(\\frac{q_m^\\top k_n}{t \\sqrt{d_k}}\\right)\\] with \\(q, k\\) scaled by \\(\\sqrt{1/t}\\), \\[\\sqrt{1/t}=0.1 \\ln(s)+1\\]\nCombine frequency scaling + controlled growth → avoids over‑shrink & under‑rotation\nSOTA long‑context RoPE scaling; robust and smooth\nImplementation slightly more complex\n\n\n\n\n\nIntuitively\n\n\n\nMethod\nKey Idea\n\n\n\n\nRPE\nLearn distances\n\n\nRoPE\nEncode angle rotation\n\n\nNTK\nSlow down rotation globally\n\n\nNTK parts\nSlow down rotation by frequency segment\n\n\nDynamic NTK\nSmart per‑dimension scaling\n\n\nYaRN\nBest RoPE scaling (balanced + stable)\n\n\nALiBi\nLinear recency bias = soft mask\n\n\nPI\nCompress indices back to training max\n\n\nBase‑N\nInterpret positions as digits\n\n\nIntra-token\nArbitrary distance mapping",
+    "crumbs": [
+      "Home",
+      "LLM",
+      "1. Foundation"
+    ]
+  },
+  {
+    "objectID": "llm/1.foundation.html#architecture",
+    "href": "llm/1.foundation.html#architecture",
+    "title": "1. Foundation",
+    "section": "Architecture",
+    "text": "Architecture\n\nEncoder‑Only Models (Bi‑Directional)\n\nDefinition: encoder‑only models compute attention over both the left and right context: \\[\n\\mathrm{Attention}(x_i) = f(x_{&lt;i}, x_i, x_{&gt;i})\n\\]\nCharacteristics\n\nNaturally bi‑directional → good for feature extraction, embeddings, classification.\nPretraining objective usually MLM (Masked LM).\nNot suitable for generation by themselves.\n\nExamples: BERT, RoBERTa, DeBERTa\n\nDecoder‑Only Models (Auto‑Regressive)\n\nDefinition: next‑token prediction. Masked causal attention ensures only left context is accessible: \\[\np(x_t \\mid x_{&lt;t})\n\\]\nCharacteristics\n\nIdeal for generation.\nNaturally supports zero‑shot, few‑shot prompting.\nEfficient training (causal LM).\nUnified pretraining → directly used for downstream tasks.\n\nExamples: GPT, GPT‑2/3/4, LLaMA, BLOOM, OPT, Mistral\n\nEncoder‑Decoder Models (Seq2Seq)\n\nEncoder \\[\nh = \\text{Enc}(x_{1:n}), \\quad \\text{bi‑directional}\n\\]\nDecoder \\[\np(y_t \\mid y_{&lt;t}, h), \\quad \\text{auto‑regressive}\n\\]\nCharacteristics\n\nBest for machine translation, summarization, instruction models.\nDecoder attends to both the encoder output and its own past.\n\nExamples: T5, Flan‑T5, BART\n\nPrefixLM (Partial Causal Masking)\n\nA hybrid: the prefix is encoded bi‑directionally; the suffix is decoded causally. This gives encoder‑decoder benefits with decoder‑only efficiency.\nMask \\[\n  M_{ij} =\n  \\begin{cases}\n  0, & j \\leq P \\\\ (\\text{prefix bi‑dir})\\\\\n  0, & j &lt; i \\\\ (\\text{causal})\\\\\n  -\\infty, & \\text{otherwise}\n  \\end{cases}\n  \\]\nExamples: GLM, U‑PaLM\n\nMixture of Experts (MoE)\nReplaces a single feedforward block with multiple experts \\[\n\\mathrm{FFN}(x) = \\sum_{k=1}^{N} g_k(x)\\, E_k(x)\n\\] Where\n\n\\(E_k\\) = expert networks\n\n\\(g_k\\) = gating weights (softmax or top‑\\(k\\))\n\n\nGating Functions\n\nLinear gate\nGLU gate\nDomain routing\nExpert‑choice gating\nAttention router\n\nSoftMoE\n\nExperts are merged into a single FNN via soft combination: \\[\n  \\mathrm{SoftMoE}(x)=W\\Big(\\sum_k g_k(x) E_k(x)\\Big)\n  \\]\nExamples: DeepSeek V2/V3, Mistral MoE, Switch Transformer\n\n\n\nSummary\n\n\n\n\n\n\n\n\n\n\nArchitecture\nAttention Style\nObjective\nStrengths\nExamples\n\n\n\n\nEncoder‑Only\nBi‑directional\nMLM\nFeature extraction\nBERT\n\n\nDecoder‑Only\nCausal\nNLL\nGeneration, zero‑shot\nGPT, LLaMA\n\n\nEncoder‑Decoder\nBi‑dir + Causal\nSeq2Seq\nTranslation, summarization\nT5, BART\n\n\nPrefixLM\nHybrid mask\nPrefix\nReasoning, dialogue\nGLM\n\n\nMoE\nRouted Experts\nSparse\nEfficient scaling\nDeepSeek, Mistral",
+    "crumbs": [
+      "Home",
+      "LLM",
+      "1. Foundation"
+    ]
+  },
+  {
+    "objectID": "llm/1.foundation.html#decoding",
+    "href": "llm/1.foundation.html#decoding",
+    "title": "1. Foundation",
+    "section": "Decoding",
+    "text": "Decoding\nDecoding = sampling the next token from the model’s distribution: \\[\np(x_t \\mid x_{&lt;t})\n\\] Different methods trade off diversity, coherence, and accuracy.\n\nGreedy Search [code]\n\\[\nx_t = \\arg\\max_i p(i \\mid x_{&lt;t})\n\\] * Always pick the highest‑probability token. * Fast but deterministic → monotonic / repetitive.\n\n\nBeam Search [code]\nKeeps top‑\\(B\\) candidates: \\[\n\\mathrm{Beam}_t = \\text{TopB}\\left( \\prod_{\\tau=1}^t p(x_\\tau) \\right)\n\\] * More global optimality. * Often too conservative for creative tasks.\n\n\nTop‑k Sampling [code]\nDraw from the top‑\\(k\\) tokens: \\[\nP_k = \\text{TopK}(p),\\quad x_t \\sim P_k\n\\] * Works well when distribution is peaked. * Poor when distribution is flat.\n\n\nTop‑p Sampling (Nucleus Sampling) [code]\nChoose smallest set \\(S\\) such that: \\[\n\\sum_{i\\in S} p(i) \\ge p\n\\] Then sample: \\[\nx_t \\sim S\n\\] * Adaptive; avoids fixed \\(k\\). * Very stable for creative generation.\n\n\nTemperature Sampling\nScaled logits: \\[\np_i' = \\frac{\\exp(z_i / T)}{\\sum_j \\exp(z_j / T)}\n\\] * \\(T&gt;1\\): makes distribution flatter → more random. * \\(T&lt;1\\): makes distribution sharper → more deterministic.\n\n\nKPT (k → p → T Pipeline)\nApply:\n\nTop‑k\nTop‑p\nTemperature\n\nThis filters noise, preserves diversity, and controls randomness.\n\n\nBest‑of‑N (Self‑Scoring)\nGenerate \\(N\\) samples: \\[\n\\{y^{(1)}, y^{(2)}, \\ldots, y^{(N)}\\}\n\\] Then score them using either:\n\nthe LLM itself, or\na reward model\n\nPick the best.\n\n\nMajority Voting / Self‑Consistency\nGenerate multiple chains: \\[\ny^{(1)}, y^{(2)}, \\ldots, y^{(N)}\n\\] Choose the majority or cluster center.\nUsed in reasoning tasks:\n\nReduces hallucination\nAmplifies correct reasoning paths\n\nSummary\n\n\n\n\n\n\n\n\n\nMethod\nDeterministic?\nDiversity\nNotes\n\n\n\n\nGreedy\nYes\nLow\nSimple, repetitive\n\n\nBeam Search\nSemi\nLow\nConservative\n\n\nTop‑k\nNo\nMedium\nFails if distribution is flat\n\n\nTop‑p\nNo\nHigh\nAdaptive nucleus\n\n\nTemp\nNo\nAdjustable\nDirectly controls randomness\n\n\nKPT\nNo\nHigh\nRobust combined method\n\n\nBest‑of‑N\nYes\nHigh\nNeeds a scoring model\n\n\nMajority / Self‑Consistency\nYes\nVery high\nGreat for reasoning",
+    "crumbs": [
+      "Home",
+      "LLM",
+      "1. Foundation"
+    ]
+  },
+  {
+    "objectID": "llm/5.applications.html",
+    "href": "llm/5.applications.html",
+    "title": "5. Applications",
+    "section": "",
+    "text": "Applications of LLMs across coding, search, agents, retrieval, and multimodal workflows, with brief notes and links.",
+    "crumbs": [
+      "Home",
+      "LLM",
+      "5. Applications"
+    ]
+  },
+  {
+    "objectID": "llm/5.applications.html#overview",
+    "href": "llm/5.applications.html#overview",
+    "title": "5. Applications",
+    "section": "",
+    "text": "Applications of LLMs across coding, search, agents, retrieval, and multimodal workflows, with brief notes and links.",
+    "crumbs": [
+      "Home",
+      "LLM",
+      "5. Applications"
+    ]
+  },
+  {
+    "objectID": "llm/7.compression.html",
+    "href": "llm/7.compression.html",
+    "title": "7. Compression",
+    "section": "",
+    "text": "Compression techniques: pruning, quantization, low-rank adaptation, knowledge distillation; pros/cons and practical tips.",
+    "crumbs": [
+      "Home",
+      "LLM",
+      "7. Compression"
+    ]
+  },
+  {
+    "objectID": "llm/7.compression.html#overview",
+    "href": "llm/7.compression.html#overview",
+    "title": "7. Compression",
+    "section": "",
+    "text": "Compression techniques: pruning, quantization, low-rank adaptation, knowledge distillation; pros/cons and practical tips.",
+    "crumbs": [
+      "Home",
+      "LLM",
+      "7. Compression"
+    ]
+  }
+]

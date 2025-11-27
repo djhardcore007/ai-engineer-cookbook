@@ -1,8 +1,18 @@
 project:
   type: website
-  output-dir: docs
+  output-dir: .
   resources:
     - llm/**
+  render:
+    - index.qmd
+    - llm/1.foundation.qmd
+    - llm/2.pretraining.qmd
+    - llm/3.post_training.qmd
+    - llm/4.common_models.qmd
+    - llm/5.applications.qmd
+    - llm/6.training_inference.qmd
+    - llm/7.compression.qmd
+    - llm/8.multimodal.qmd
 
 website:
   title: "AI Engineer Cookbook"
@@ -53,3 +63,5 @@ format:
     code-copy: true
     code-link: true
     math: katex
+  pdf:
+    documentclass: article

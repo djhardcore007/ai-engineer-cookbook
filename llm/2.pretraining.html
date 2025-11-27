@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>pretraining – AI Engineer Cookbook</title>
+<title>2. Pretraining – AI Engineer Cookbook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -267,51 +267,65 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#definition" id="toc-definition" class="nav-link active" data-scroll-target="#definition">1. Definition</a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">2. Data</a></li>
-  <li><a href="#procedure" id="toc-procedure" class="nav-link" data-scroll-target="#procedure">3. Procedure</a></li>
-  <li><a href="#continue-pretrain" id="toc-continue-pretrain" class="nav-link" data-scroll-target="#continue-pretrain">4. Continue pretrain</a></li>
-  <li><a href="#inference-time" id="toc-inference-time" class="nav-link" data-scroll-target="#inference-time">5. Inference time</a></li>
-  <li><a href="#evaluation" id="toc-evaluation" class="nav-link" data-scroll-target="#evaluation">6. Evaluation</a>
-  <ul class="collapse">
-  <li><a href="#benchmark" id="toc-benchmark" class="nav-link" data-scroll-target="#benchmark">6.1 Benchmark</a></li>
-  <li><a href="#ppl" id="toc-ppl" class="nav-link" data-scroll-target="#ppl">6.2 PPL</a></li>
-  </ul></li>
+  <li><a href="#definition" id="toc-definition" class="nav-link active" data-scroll-target="#definition">Definition</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
+  <li><a href="#procedure" id="toc-procedure" class="nav-link" data-scroll-target="#procedure">Procedure</a></li>
+  <li><a href="#continue-pretrain" id="toc-continue-pretrain" class="nav-link" data-scroll-target="#continue-pretrain">Continue pretrain</a></li>
+  <li><a href="#inference-time" id="toc-inference-time" class="nav-link" data-scroll-target="#inference-time">Inference time</a></li>
+  <li><a href="#evaluation" id="toc-evaluation" class="nav-link" data-scroll-target="#evaluation">Evaluation</a></li>
+  <li><a href="#benchmark" id="toc-benchmark" class="nav-link" data-scroll-target="#benchmark">Benchmark</a></li>
+  <li><a href="#ppl" id="toc-ppl" class="nav-link" data-scroll-target="#ppl">PPL</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../llm/1.foundation.html">LLM</a></li><li class="breadcrumb-item"><a href="../llm/2.pretraining.html">2. Pretraining</a></li></ol></nav></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../llm/1.foundation.html">LLM</a></li><li class="breadcrumb-item"><a href="../llm/2.pretraining.html">2. Pretraining</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">2. Pretraining</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<section id="definition" class="level1">
-<h1>1. Definition</h1>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="definition" class="level2">
+<h2 class="anchored" data-anchor-id="definition">Definition</h2>
 </section>
-<section id="data" class="level1">
-<h1>2. Data</h1>
+<section id="data" class="level2">
+<h2 class="anchored" data-anchor-id="data">Data</h2>
 </section>
-<section id="procedure" class="level1">
-<h1>3. Procedure</h1>
+<section id="procedure" class="level2">
+<h2 class="anchored" data-anchor-id="procedure">Procedure</h2>
 </section>
-<section id="continue-pretrain" class="level1">
-<h1>4. Continue pretrain</h1>
+<section id="continue-pretrain" class="level2">
+<h2 class="anchored" data-anchor-id="continue-pretrain">Continue pretrain</h2>
 </section>
-<section id="inference-time" class="level1">
-<h1>5. Inference time</h1>
+<section id="inference-time" class="level2">
+<h2 class="anchored" data-anchor-id="inference-time">Inference time</h2>
 </section>
-<section id="evaluation" class="level1">
-<h1>6. Evaluation</h1>
+<section id="evaluation" class="level2">
+<h2 class="anchored" data-anchor-id="evaluation">Evaluation</h2>
+</section>
 <section id="benchmark" class="level2">
-<h2 class="anchored" data-anchor-id="benchmark">6.1 Benchmark</h2>
+<h2 class="anchored" data-anchor-id="benchmark">Benchmark</h2>
 </section>
 <section id="ppl" class="level2">
-<h2 class="anchored" data-anchor-id="ppl">6.2 PPL</h2>
+<h2 class="anchored" data-anchor-id="ppl">PPL</h2>
 
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

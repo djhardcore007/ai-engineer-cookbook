@@ -270,22 +270,9 @@ window.Quarto = {
   <li><a href="#tokenization" id="toc-tokenization" class="nav-link active" data-scroll-target="#tokenization">Tokenization</a></li>
   <li><a href="#embedding" id="toc-embedding" class="nav-link" data-scroll-target="#embedding">Embedding</a></li>
   <li><a href="#attention" id="toc-attention" class="nav-link" data-scroll-target="#attention">Attention</a></li>
-  <li><a href="#ffn-ln" id="toc-ffn-ln" class="nav-link" data-scroll-target="#ffn-ln">FFN + LN</a>
-  <ul class="collapse">
-  <li><a href="#why-ffn" id="toc-why-ffn" class="nav-link" data-scroll-target="#why-ffn">Why FFN?</a></li>
-  <li><a href="#normalizations" id="toc-normalizations" class="nav-link" data-scroll-target="#normalizations">Normalizations</a></li>
-  </ul></li>
-  <li><a href="#ffn-activations" id="toc-ffn-activations" class="nav-link" data-scroll-target="#ffn-activations">FFN + Activations</a>
-  <ul class="collapse">
-  <li><a href="#types-of-activation" id="toc-types-of-activation" class="nav-link" data-scroll-target="#types-of-activation">Types of Activation</a></li>
-  <li><a href="#activation-functions" id="toc-activation-functions" class="nav-link" data-scroll-target="#activation-functions">Activation functions</a></li>
-  </ul></li>
-  <li><a href="#positional-encoding" id="toc-positional-encoding" class="nav-link" data-scroll-target="#positional-encoding">Positional Encoding</a>
-  <ul class="collapse">
-  <li><a href="#types" id="toc-types" class="nav-link" data-scroll-target="#types">Types</a></li>
-  <li><a href="#fancy-positional-encoding-methods" id="toc-fancy-positional-encoding-methods" class="nav-link" data-scroll-target="#fancy-positional-encoding-methods">Fancy Positional Encoding Methods</a></li>
-  <li><a href="#length-extrapolation" id="toc-length-extrapolation" class="nav-link" data-scroll-target="#length-extrapolation">Length Extrapolation</a></li>
-  </ul></li>
+  <li><a href="#ffn-ln" id="toc-ffn-ln" class="nav-link" data-scroll-target="#ffn-ln">FFN + LN</a></li>
+  <li><a href="#ffn-activations" id="toc-ffn-activations" class="nav-link" data-scroll-target="#ffn-activations">FFN + Activations</a></li>
+  <li><a href="#positional-encoding" id="toc-positional-encoding" class="nav-link" data-scroll-target="#positional-encoding">Positional Encoding</a></li>
   <li><a href="#architecture" id="toc-architecture" class="nav-link" data-scroll-target="#architecture">Architecture</a></li>
   <li><a href="#decoding" id="toc-decoding" class="nav-link" data-scroll-target="#decoding">Decoding</a></li>
   </ul>
@@ -313,11 +300,10 @@ window.Quarto = {
 </header>
 
 
-<section id="tokenization" class="level1">
-<h1>Tokenization</h1>
+<section id="tokenization" class="level2">
+<h2 class="anchored" data-anchor-id="tokenization">Tokenization</h2>
 <ul>
-<li>Why?</li>
-<li>3 types of tokens: char, word, subwords
+<li>3 types: char, word, subwords
 <ul>
 <li>word: 1) OOV 2) long-tail effect 3) won’t learn the shared meaning between <em>swim</em> and <em>swimming</em>.</li>
 <li>char: sequence length too long → expensive compute.</li>
@@ -369,8 +355,8 @@ Merge on frequency. Count frequencies of all units, merge subwords that reduce t
 <li>Tokenization is the root of a lot of issues: because LLMs are next-token predictors, they struggle with exact arithmetic.</li>
 </ul>
 </section>
-<section id="embedding" class="level1">
-<h1>Embedding</h1>
+<section id="embedding" class="level2">
+<h2 class="anchored" data-anchor-id="embedding">Embedding</h2>
 <ul>
 <li><p>Why? Word embeddings are dense representations that capture semantic meanings. It’s basically training an MLP to map one-hot vectors into dense vectors that represent word meaning.</p></li>
 <li><p>Lookup table <code>nn.Embedding(vocab_size, embedding_dim)</code> turns a <span class="math inline">\(|V|\)</span>-dim one-hot vector into a 512/768‑dim dense vector.</p></li>
@@ -470,8 +456,8 @@ u = {W'}^T h
 </ul></li>
 </ul>
 </section>
-<section id="attention" class="level1">
-<h1>Attention</h1>
+<section id="attention" class="level2">
+<h2 class="anchored" data-anchor-id="attention">Attention</h2>
 <ul>
 <li><p>Why?</p>
 <ul>
@@ -656,11 +642,11 @@ u = {W'}^T h
 </ul></li>
 </ul>
 </section>
-<section id="ffn-ln" class="level1">
-<h1>FFN + LN</h1>
-<section id="why-ffn" class="level2">
-<h2 class="anchored" data-anchor-id="why-ffn">Why FFN?</h2>
-<p>After MHA, tokens exchange information. The FFN is for local computation. ## Why add residuals? 1. Avoid gradient explosion / vanishing in deep networks. Residuals add shortcut connections. 2. Standard residual: an express lane for information.</p>
+<section id="ffn-ln" class="level2">
+<h2 class="anchored" data-anchor-id="ffn-ln">FFN + LN</h2>
+<section id="why-ffn" class="level4">
+<h4 class="anchored" data-anchor-id="why-ffn">Why FFN?</h4>
+<p>After MHA, tokens exchange information. The FFN is for local computation. #### Why add residuals? 1. Avoid gradient explosion / vanishing in deep networks. Residuals add shortcut connections. 2. Standard residual: an express lane for information.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 9%">
@@ -693,7 +679,7 @@ u = {W'}^T h
 <tr class="even">
 <td><strong>DeepNorm</strong></td>
 <td><span class="math display">\[x_{l+1} = x_l + \alpha \cdot f(\text{LN}(x_l))\]</span> <br> Encoder: <span class="math display">\[\alpha = \frac{1}{\sqrt{2N}}\]</span> <br> Decoder: <span class="math display">\[\alpha = \frac{1}{\sqrt{4N}}\]</span></td>
-<td>Adds residual scaling so <strong>very deep</strong> models stay stable; <span class="math inline">\(N\)</span> is # of layers.</td>
+<td>Adds residual scaling so <strong>very deep</strong> models stay stable; <span class="math inline">\(N\)</span> is ## of layers.</td>
 </tr>
 <tr class="odd">
 <td><strong>ReZero</strong></td>
@@ -703,8 +689,8 @@ u = {W'}^T h
 </tbody>
 </table>
 </section>
-<section id="normalizations" class="level2">
-<h2 class="anchored" data-anchor-id="normalizations">Normalizations</h2>
+<section id="normalizations" class="level4">
+<h4 class="anchored" data-anchor-id="normalizations">Normalizations</h4>
 <ul>
 <li>Why? Stable convergence; avoid gradients exploding or vanishing.</li>
 <li>Types
@@ -761,10 +747,10 @@ u = {W'}^T h
 </ul>
 </section>
 </section>
-<section id="ffn-activations" class="level1">
-<h1>FFN + Activations</h1>
-<section id="types-of-activation" class="level2">
-<h2 class="anchored" data-anchor-id="types-of-activation">Types of Activation</h2>
+<section id="ffn-activations" class="level2">
+<h2 class="anchored" data-anchor-id="ffn-activations">FFN + Activations</h2>
+<section id="types-of-activation" class="level4">
+<h4 class="anchored" data-anchor-id="types-of-activation">Types of Activation</h4>
 <ul>
 <li><p>Vanilla FFN activation <span class="math display">\[
   \mathrm{FFN}(x) = \operatorname{ReLU}(xW_1 + b_1)W_2 + b_2
@@ -779,8 +765,8 @@ u = {W'}^T h
 <p>If you swap <span class="math inline">\(\sigma\)</span> with Swish or GELU, you get the newer FFN designs used in current LLMs.</p></li>
 </ul>
 </section>
-<section id="activation-functions" class="level2">
-<h2 class="anchored" data-anchor-id="activation-functions">Activation functions</h2>
+<section id="activation-functions" class="level4">
+<h4 class="anchored" data-anchor-id="activation-functions">Activation functions</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 6%">
@@ -866,11 +852,11 @@ u = {W'}^T h
 </table>
 </section>
 </section>
-<section id="positional-encoding" class="level1">
-<h1>Positional Encoding</h1>
+<section id="positional-encoding" class="level2">
+<h2 class="anchored" data-anchor-id="positional-encoding">Positional Encoding</h2>
 <p>Why? Transformers don’t learn order by default.</p>
-<section id="types" class="level2">
-<h2 class="anchored" data-anchor-id="types">Types</h2>
+<section id="types" class="level4">
+<h4 class="anchored" data-anchor-id="types">Types</h4>
 <ul>
 <li>Absolute positional encoding <span class="math display">\[
   PE(t) = [\sin(\omega_0 t), \sin(\omega_1 t), \dots, \sin(\omega_n t)]
@@ -897,8 +883,8 @@ u = {W'}^T h
 </ul></li>
 </ul>
 </section>
-<section id="fancy-positional-encoding-methods" class="level2">
-<h2 class="anchored" data-anchor-id="fancy-positional-encoding-methods">Fancy Positional Encoding Methods</h2>
+<section id="fancy-positional-encoding-methods" class="level4">
+<h4 class="anchored" data-anchor-id="fancy-positional-encoding-methods">Fancy Positional Encoding Methods</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 9%">
@@ -970,8 +956,8 @@ u = {W'}^T h
 <li>Intra-token → any distance function you want</li>
 </ul>
 </section>
-<section id="length-extrapolation" class="level2">
-<h2 class="anchored" data-anchor-id="length-extrapolation">Length Extrapolation</h2>
+<section id="length-extrapolation" class="level4">
+<h4 class="anchored" data-anchor-id="length-extrapolation">Length Extrapolation</h4>
 <ul>
 <li>def: when input sequence is too long. Training seq length is, say, 20k; inference seq 128k. Model collapses because it never saw tokens at such large positions.</li>
 <li>Goal: encode positional info so the model can extrapolate to very long lengths.</li>
@@ -1134,8 +1120,8 @@ u = {W'}^T h
 </table>
 </section>
 </section>
-<section id="architecture" class="level1">
-<h1>Architecture</h1>
+<section id="architecture" class="level2">
+<h2 class="anchored" data-anchor-id="architecture">Architecture</h2>
 <ol type="1">
 <li><p>Encoder‑Only Models (Bi‑Directional)</p>
 <ul>
@@ -1219,47 +1205,102 @@ p(y_t \mid y_{&lt;t}, h), \quad \text{auto‑regressive}
 </ul></li>
 </ul></li>
 </ol>
-<p>Summary | Architecture | Attention Style | Objective | Strengths | Examples | | ————— | ————— | ——— | ————————– | —————– | | Encoder‑Only | Bi‑directional | MLM | Feature extraction | BERT | | Decoder‑Only | Causal | NLL | Generation, zero‑shot | GPT, LLaMA | | Encoder‑Decoder | Bi‑dir + Causal | Seq2Seq | Translation, summarization | T5, BART | | PrefixLM | Hybrid mask | Prefix | Reasoning, dialogue | GLM | | MoE | Routed Experts | Sparse | Efficient scaling | DeepSeek, Mistral |</p>
+<p>Summary</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 18%">
+<col style="width: 10%">
+<col style="width: 31%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Architecture</th>
+<th>Attention Style</th>
+<th>Objective</th>
+<th>Strengths</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Encoder‑Only</td>
+<td>Bi‑directional</td>
+<td>MLM</td>
+<td>Feature extraction</td>
+<td>BERT</td>
+</tr>
+<tr class="even">
+<td>Decoder‑Only</td>
+<td>Causal</td>
+<td>NLL</td>
+<td>Generation, zero‑shot</td>
+<td>GPT, LLaMA</td>
+</tr>
+<tr class="odd">
+<td>Encoder‑Decoder</td>
+<td>Bi‑dir + Causal</td>
+<td>Seq2Seq</td>
+<td>Translation, summarization</td>
+<td>T5, BART</td>
+</tr>
+<tr class="even">
+<td>PrefixLM</td>
+<td>Hybrid mask</td>
+<td>Prefix</td>
+<td>Reasoning, dialogue</td>
+<td>GLM</td>
+</tr>
+<tr class="odd">
+<td>MoE</td>
+<td>Routed Experts</td>
+<td>Sparse</td>
+<td>Efficient scaling</td>
+<td>DeepSeek, Mistral</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="decoding" class="level1">
-<h1>Decoding</h1>
+<section id="decoding" class="level2">
+<h2 class="anchored" data-anchor-id="decoding">Decoding</h2>
 <p>Decoding = sampling the next token from the model’s distribution: <span class="math display">\[
 p(x_t \mid x_{&lt;t})
 \]</span> Different methods trade off <strong>diversity</strong>, <strong>coherence</strong>, and <strong>accuracy</strong>.</p>
-<section id="greedy-search-code" class="level3">
-<h3 class="anchored" data-anchor-id="greedy-search-code">Greedy Search <a href="1.6.1.greedy_search.py">[code]</a></h3>
+<section id="greedy-search-code" class="level6">
+<h6 class="anchored" data-anchor-id="greedy-search-code">Greedy Search <a href="1.6.1.greedy_search.py">[code]</a></h6>
 <p><span class="math display">\[
 x_t = \arg\max_i p(i \mid x_{&lt;t})
 \]</span> * Always pick the highest‑probability token. * Fast but deterministic → <strong>monotonic / repetitive</strong>.</p>
 </section>
-<section id="beam-search-code" class="level3">
-<h3 class="anchored" data-anchor-id="beam-search-code">Beam Search <a href="1.6.2.beam_search.py">[code]</a></h3>
+<section id="beam-search-code" class="level6">
+<h6 class="anchored" data-anchor-id="beam-search-code">Beam Search <a href="1.6.2.beam_search.py">[code]</a></h6>
 <p>Keeps top‑<span class="math inline">\(B\)</span> candidates: <span class="math display">\[
 \mathrm{Beam}_t = \text{TopB}\left( \prod_{\tau=1}^t p(x_\tau) \right)
 \]</span> * More global optimality. * Often too conservative for creative tasks.</p>
 </section>
-<section id="topk-sampling-code" class="level3">
-<h3 class="anchored" data-anchor-id="topk-sampling-code">Top‑k Sampling <a href="1.6.3.top_k_sampling.py">[code]</a></h3>
+<section id="topk-sampling-code" class="level6">
+<h6 class="anchored" data-anchor-id="topk-sampling-code">Top‑k Sampling <a href="1.6.3.top_k_sampling.py">[code]</a></h6>
 <p>Draw from the top‑<span class="math inline">\(k\)</span> tokens: <span class="math display">\[
 P_k = \text{TopK}(p),\quad x_t \sim P_k
 \]</span> * Works well when distribution is <strong>peaked</strong>. * Poor when distribution is <strong>flat</strong>.</p>
 </section>
-<section id="topp-sampling-nucleus-sampling-code" class="level3">
-<h3 class="anchored" data-anchor-id="topp-sampling-nucleus-sampling-code">Top‑p Sampling (Nucleus Sampling) <a href="1.6.4.top_p_sampling.py">[code]</a></h3>
+<section id="topp-sampling-nucleus-sampling-code" class="level6">
+<h6 class="anchored" data-anchor-id="topp-sampling-nucleus-sampling-code">Top‑p Sampling (Nucleus Sampling) <a href="1.6.4.top_p_sampling.py">[code]</a></h6>
 <p>Choose smallest set <span class="math inline">\(S\)</span> such that: <span class="math display">\[
 \sum_{i\in S} p(i) \ge p
 \]</span> Then sample: <span class="math display">\[
 x_t \sim S
 \]</span> * Adaptive; avoids fixed <span class="math inline">\(k\)</span>. * Very stable for creative generation.</p>
 </section>
-<section id="temperature-sampling" class="level3">
-<h3 class="anchored" data-anchor-id="temperature-sampling">Temperature Sampling</h3>
+<section id="temperature-sampling" class="level6">
+<h6 class="anchored" data-anchor-id="temperature-sampling">Temperature Sampling</h6>
 <p>Scaled logits: <span class="math display">\[
 p_i' = \frac{\exp(z_i / T)}{\sum_j \exp(z_j / T)}
 \]</span> * <span class="math inline">\(T&gt;1\)</span>: makes distribution <strong>flatter</strong> → more random. * <span class="math inline">\(T&lt;1\)</span>: makes distribution <strong>sharper</strong> → more deterministic.</p>
 </section>
-<section id="kpt-k-p-t-pipeline" class="level3">
-<h3 class="anchored" data-anchor-id="kpt-k-p-t-pipeline">KPT (k → p → T Pipeline)</h3>
+<section id="kpt-k-p-t-pipeline" class="level6">
+<h6 class="anchored" data-anchor-id="kpt-k-p-t-pipeline">KPT (k → p → T Pipeline)</h6>
 <p>Apply:</p>
 <ol type="1">
 <li><strong>Top‑k</strong></li>
@@ -1268,8 +1309,8 @@ p_i' = \frac{\exp(z_i / T)}{\sum_j \exp(z_j / T)}
 </ol>
 <p>This filters noise, preserves diversity, and controls randomness.</p>
 </section>
-<section id="bestofn-selfscoring" class="level3">
-<h3 class="anchored" data-anchor-id="bestofn-selfscoring">Best‑of‑N (Self‑Scoring)</h3>
+<section id="bestofn-selfscoring" class="level6">
+<h6 class="anchored" data-anchor-id="bestofn-selfscoring">Best‑of‑N (Self‑Scoring)</h6>
 <p>Generate <span class="math inline">\(N\)</span> samples: <span class="math display">\[
 \{y^{(1)}, y^{(2)}, \ldots, y^{(N)}\}
 \]</span> Then score them using either:</p>
@@ -1279,8 +1320,8 @@ p_i' = \frac{\exp(z_i / T)}{\sum_j \exp(z_j / T)}
 </ul>
 <p>Pick the best.</p>
 </section>
-<section id="majority-voting-selfconsistency" class="level3">
-<h3 class="anchored" data-anchor-id="majority-voting-selfconsistency">Majority Voting / Self‑Consistency</h3>
+<section id="majority-voting-selfconsistency" class="level6">
+<h6 class="anchored" data-anchor-id="majority-voting-selfconsistency">Majority Voting / Self‑Consistency</h6>
 <p>Generate multiple chains: <span class="math display">\[
 y^{(1)}, y^{(2)}, \ldots, y^{(N)}
 \]</span> Choose the majority or cluster center.<br>

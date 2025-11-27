@@ -5,11 +5,11 @@ format:
     toc: true
 ---
 
-# 1. Definition
-# 2. Data
-# 3. Procedure
-# 4. Continue pretrain
-# 5. Inference time
-# 6. Evaluation
-## 6.1 Benchmark
-## 6.2 PPL
+## Definition
+## Data
+## Procedure
+## Continue pretrain
+## Inference time
+## Evaluation
+## Benchmark
+## PPL

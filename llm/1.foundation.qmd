@@ -5,10 +5,9 @@ format:
     toc: true
 ---
 
-# Tokenization
+## Tokenization
 
-- Why?
-- 3 types of tokens: char, word, subwords
+- 3 types: char, word, subwords
     - word: 1) OOV 2) long-tail effect 3) won’t learn the shared meaning between *swim* and *swimming*.
     - char: sequence length too long → expensive compute.
     - subword units.
@@ -48,7 +47,7 @@ format:
 
 - Tokenization is the root of a lot of issues: because LLMs are next-token predictors, they struggle with exact arithmetic.
 
-# Embedding
+## Embedding
 
 - Why? Word embeddings are dense representations that capture semantic meanings. It’s basically training an MLP to map one-hot vectors into dense vectors that represent word meaning.
 - Lookup table `nn.Embedding(vocab_size, embedding_dim)` turns a $|V|$-dim one-hot vector into a 512/768‑dim dense vector.
@@ -180,7 +179,7 @@ format:
                 $$
                 where $\sigma$ is sigmoid, $v_+$ is the real context embedding, and $v_{\text{neg}_i}$ are negative embeddings.
 
-# Attention
+## Attention
 
 - Why?
     - Core idea: assign importance scores to different tokens and focus on the important ones.
@@ -320,11 +319,11 @@ format:
 - S2 attention:
     - How? (various sparse + sliding schemes for long sequences).
 
-# FFN + LN
+## FFN + LN
 
-## Why FFN?
+#### Why FFN?
 After MHA, tokens exchange information. The FFN is for local computation.
-## Why add residuals?
+#### Why add residuals?
 1. Avoid gradient explosion / vanishing in deep networks. Residuals add shortcut connections.
 2. Standard residual: an express lane for information.
 
@@ -334,11 +333,11 @@ After MHA, tokens exchange information. The FFN is for local computation.
 | **Standard Residual**   | $$x_{l+1} = x_l + f(x_l)$$                                                                                                                         | Original ResNet‑style skip connection                          |
 | **Post‑LN Transformer** | $$x_{l+1} = \text{LN}(x_l + f(x_l))$$                                                                                                            | Used in early Transformers (BERT), less stable for deep models |
 | **Pre‑LN Transformer**  | $$x_{l+1} = x_l + f(\text{LN}(x_l))$$                                                                                                            | Used in modern LLMs (GPT, LLaMA), very stable                  |
-| **DeepNorm**            | $$x_{l+1} = x_l + \alpha \cdot f(\text{LN}(x_l))$$ <br> Encoder: $$\alpha = \frac{1}{\sqrt{2N}}$$ <br> Decoder: $$\alpha = \frac{1}{\sqrt{4N}}$$ | Adds residual scaling so **very deep** models stay stable; $N$ is # of layers. |
+| **DeepNorm**            | $$x_{l+1} = x_l + \alpha \cdot f(\text{LN}(x_l))$$ <br> Encoder: $$\alpha = \frac{1}{\sqrt{2N}}$$ <br> Decoder: $$\alpha = \frac{1}{\sqrt{4N}}$$ | Adds residual scaling so **very deep** models stay stable; $N$ is ## of layers. |
 | **ReZero**              | $$x_{l+1} = x_l + \alpha \cdot f(x_l)$$ (α learnable, init = 0)                                                                                  | Starts with zero residual; stabilizes early training           |
 
 
-## Normalizations
+#### Normalizations
 - Why? Stable convergence; avoid gradients exploding or vanishing.
 - Types
     - LayerNorm
@@ -356,8 +355,8 @@ After MHA, tokens exchange information. The FFN is for local computation.
     | **RMSNorm**           | $$\text{RMS}(x)=\sqrt{\frac{1}{H}\sum_{i=1}^{H} x_i^2 + \epsilon}$$ $$x_{\text{norm}} = \frac{x}{\text{RMS}(x)} \cdot \gamma$$                                         | Normalizes only by **root mean square** (no mean subtraction, no β) | Faster, more stable; used by LLaMA, T5 (**no need to shift, only scale**). |
     | **DeepNorm**          | $$x_{l+1} = x_l + \alpha \cdot f(\text{LN}(x_l))$$ $$\text{Encoder: } \alpha=\frac{1}{\sqrt{2N}}, \quad \text{Decoder: } \alpha=\frac{1}{\sqrt{4N}}$$               | **Scales residual branches**, not normalization itself              | Enables very **deep** transformers (hundreds–thousands of layers) |
 
-# FFN + Activations
-## Types of Activation
+## FFN + Activations
+#### Types of Activation
 - Vanilla FFN activation 
     $$
     \mathrm{FFN}(x) = \operatorname{ReLU}(xW_1 + b_1)W_2 + b_2
@@ -376,7 +375,7 @@ After MHA, tokens exchange information. The FFN is for local computation.
 
     If you swap $\sigma$ with Swish or GELU, you get the newer FFN designs used in current LLMs.
 
-## Activation functions
+#### Activation functions
 
 | Activation     | Formula                                                                        | Notes                                                                                             |   |                                 |
 | -------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------- | - | ------------------------------- |
@@ -391,11 +390,11 @@ After MHA, tokens exchange information. The FFN is for local computation.
 | **Softmax**    | $$\text{softmax}(x_i) = \frac{e^{x_i}}{\sum_j e^{x_j}}$$                       | Converts logits to a **probability distribution**                                                 |   |                                 |
 
 
-# Positional Encoding
+## Positional Encoding
 
 Why? Transformers don’t learn order by default.
 
-## Types
+#### Types
 
 - Absolute positional encoding
     $$
@@ -421,7 +420,7 @@ Why? Transformers don’t learn order by default.
         - RoPE: if the encoding is embedded into attention.
         - ALiBi: if the encoding is added as a soft bias in attention; you penalize weights of tokens $j$ farther from token $i$.
 
-## Fancy Positional Encoding Methods
+#### Fancy Positional Encoding Methods
 | Method                               | Formula                                                                                                                                           | What It Encodes                                   | Intuition                                                                                                                                                  |
 | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Sinusoidal (Absolute)**            | $$PE(t)_i = \sin(t \cdot \omega_i),\quad \omega_i = 10000^{-i/d}$$                                                                                | Absolute position index                           | Each position gets a unique “wave signature.” Different frequencies let the model infer order (like reading a timestamp).                                  |
@@ -443,7 +442,7 @@ My intuition is that
 - Intra-token → any distance function you want
 
 
-## Length Extrapolation
+#### Length Extrapolation
 - def: when input sequence is too long. Training seq length is, say, 20k; inference seq 128k. Model collapses because it never saw tokens at such large positions.
 - Goal: encode positional info so the model can extrapolate to very long lengths.
 
@@ -476,7 +475,7 @@ Intuitively
 | Intra-token | Arbitrary distance mapping              |
 
 
-# Architecture
+## Architecture
 
 1. Encoder‑Only Models (Bi‑Directional)
     - Definition: encoder‑only models compute attention over both the left and right context:
@@ -556,6 +555,7 @@ Intuitively
         - Examples: DeepSeek V2/V3, Mistral MoE, Switch Transformer
 
 Summary
+
 | Architecture    | Attention Style | Objective | Strengths                  | Examples          |
 | --------------- | --------------- | --------- | -------------------------- | ----------------- |
 | Encoder‑Only    | Bi‑directional  | MLM       | Feature extraction         | BERT              |
@@ -564,7 +564,7 @@ Summary
 | PrefixLM        | Hybrid mask     | Prefix    | Reasoning, dialogue        | GLM               |
 | MoE             | Routed Experts  | Sparse    | Efficient scaling          | DeepSeek, Mistral |
 
-# Decoding
+## Decoding
 
 Decoding = sampling the next token from the model’s distribution:
 $$
@@ -572,14 +572,14 @@ p(x_t \mid x_{<t})
 $$
 Different methods trade off **diversity**, **coherence**, and **accuracy**.
 
-### Greedy Search [[code]](1.6.1.greedy_search.py)
+###### Greedy Search [[code]](1.6.1.greedy_search.py)
 $$
 x_t = \arg\max_i p(i \mid x_{<t})
 $$
 * Always pick the highest‑probability token.
 * Fast but deterministic → **monotonic / repetitive**.
 
-### Beam Search [[code]](1.6.2.beam_search.py)
+###### Beam Search [[code]](1.6.2.beam_search.py)
 
 Keeps top‑$B$ candidates:
 $$
@@ -588,7 +588,7 @@ $$
 * More global optimality.
 * Often too conservative for creative tasks.
 
-### Top‑k Sampling [[code]](1.6.3.top_k_sampling.py)
+###### Top‑k Sampling [[code]](1.6.3.top_k_sampling.py)
 
 Draw from the top‑$k$ tokens:
 $$
@@ -597,7 +597,7 @@ $$
 * Works well when distribution is **peaked**.
 * Poor when distribution is **flat**.
 
-### Top‑p Sampling (Nucleus Sampling) [[code]](1.6.4.top_p_sampling.py)
+###### Top‑p Sampling (Nucleus Sampling) [[code]](1.6.4.top_p_sampling.py)
 
 Choose smallest set $S$ such that:
 $$
@@ -610,7 +610,7 @@ $$
 * Adaptive; avoids fixed $k$.
 * Very stable for creative generation.
 
-### Temperature Sampling
+###### Temperature Sampling
 
 Scaled logits:
 $$
@@ -619,7 +619,7 @@ $$
 * $T>1$: makes distribution **flatter** → more random.
 * $T<1$: makes distribution **sharper** → more deterministic.
 
-### KPT (k → p → T Pipeline)
+###### KPT (k → p → T Pipeline)
 
 Apply:
 
@@ -629,7 +629,7 @@ Apply:
 
 This filters noise, preserves diversity, and controls randomness.
 
-### Best‑of‑N (Self‑Scoring)
+###### Best‑of‑N (Self‑Scoring)
 
 Generate $N$ samples:
 $$
@@ -642,7 +642,7 @@ Then score them using either:
 
 Pick the best.
 
-### Majority Voting / Self‑Consistency
+###### Majority Voting / Self‑Consistency
 
 Generate multiple chains:
 $$
