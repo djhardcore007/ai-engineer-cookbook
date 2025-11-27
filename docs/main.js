@@ -1,13 +1,13 @@
 // Mapping from logical chapters to markdown files in ../llm
 const chapters = [
-  { id: 'architecture', title: '1. Architecture', file: '../llm/1.architecture.md' },
-  { id: 'pretraining', title: '2. Pretraining', file: '../llm/2.pretraining.md' },
-  { id: 'post_training', title: '3. Post-training', file: '../llm/3.post_training.md' },
-  { id: 'common_models', title: '4. Common Models', file: '../llm/4.common_models.md' },
-  { id: 'applications', title: '5. Applications', file: '../llm/5.applications.md' },
-  { id: 'training_inference', title: '6. Training & Inference', file: '../llm/6.training_inference.md' },
-  { id: 'compression', title: '7. Compression', file: '../llm/7.compression.md' },
-  { id: 'multimodal', title: '8. Multimodal', file: '../llm/8.multimodal.md' },
+  { id: 'architecture',        title: '1. Architecture',        file: '../llm/1.architecture.md' },
+  { id: 'pretraining',         title: '2. Pretraining',         file: '../llm/2.pretraining.md' },
+  { id: 'post_training',       title: '3. Post-training',       file: '../llm/3.post_training.md' },
+  { id: 'common_models',       title: '4. Common Models',       file: '../llm/4.common_models.md' },
+  { id: 'applications',        title: '5. Applications',        file: '../llm/5.applications.md' },
+  { id: 'training_inference',  title: '6. Training & Inference',file: '../llm/6.training_inference.md' },
+  { id: 'compression',         title: '7. Compression',         file: '../llm/7.compression.md' },
+  { id: 'multimodal',          title: '8. Multimodal',          file: '../llm/8.multimodal.md' },
 ];
 
 function buildToc() {
