@@ -1,0 +1,10 @@
+---
+title: "8. Multimodal"
+format:
+  html:
+    toc: true
+---
+## Overview
+
+Multimodal models combining text with vision, audio, and actions; brief taxonomy and references.
+

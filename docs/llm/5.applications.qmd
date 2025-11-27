@@ -1,0 +1,10 @@
+---
+title: "5. Applications"
+format:
+  html:
+    toc: true
+---
+## Overview
+
+Applications of LLMs across coding, search, agents, retrieval, and multimodal workflows, with brief notes and links.
+
