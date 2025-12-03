@@ -1,0 +1,10 @@
+---
+title: "6. Training & Inference"
+format:
+  html:
+    toc: true
+---
+## Overview
+
+Notes on efficient training and inference: batching, KV cache, quantization, distillation, serving patterns.
+

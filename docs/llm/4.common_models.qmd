@@ -1,0 +1,10 @@
+---
+title: "4. Common Models"
+format:
+  html:
+    toc: true
+---
+## Overview
+
+This chapter will summarize widely used LLM architectures and families (GPT, LLaMA, T5, Mistral, etc.), with notes on design choices and trade-offs.
+

@@ -1,0 +1,10 @@
+---
+title: "7. Compression"
+format:
+  html:
+    toc: true
+---
+## Overview
+
+Compression techniques: pruning, quantization, low-rank adaptation, knowledge distillation; pros/cons and practical tips.
+
